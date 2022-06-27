@@ -1,3 +1,13 @@
-@import 'base/reset';
-@import 'base/more';
-@import 'base/fonts';
+@import './base/fonts';
+@import './base/reset';
+@import './base/more';
+
+html,
+body {
+  height: 100%;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#root {
+  height: 100%;
+}

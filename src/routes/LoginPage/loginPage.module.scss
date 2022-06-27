@@ -1,0 +1,71 @@
+@use 'styles/constants/colors' as color;
+
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: aliceblue;
+
+  .loginForm {
+    width: 420px;
+    margin: 0 auto;
+    text-align: center;
+
+    & h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      & mark {
+        color: color.$NAVY;
+        background-color: transparent;
+      }
+    }
+
+    & h2 {
+      margin-top: 40px;
+      margin-bottom: 65px;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    & input {
+      width: 400px;
+      height: 56px;
+      padding: 16px 24px;
+      font-size: 20px;
+      border: 1px solid color.$GREY_PRIMARY;
+      border-radius: 30px;
+
+      &::placeholder {
+        font-weight: 400;
+        color: color.$GREY_PRIMARY;
+      }
+
+      &:first-of-type {
+        margin-bottom: 12px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 30px;
+      }
+    }
+
+    & .loginBtn {
+      width: 400px;
+      height: 56px;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: 700;
+      color: color.$WHITE;
+      background-color: color.$BLUE_PRIMARY;
+      border-radius: 30px;
+    }
+
+    & .btn {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
