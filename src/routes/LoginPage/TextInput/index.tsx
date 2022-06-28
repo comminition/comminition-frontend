@@ -1,6 +1,11 @@
-import { useState } from 'react';
-import { EyeOnIcon, EyeOffIcon, CheckIcon } from 'assets/svgs';
+import { ChangeEvent, FocusEvent, useState } from 'react';
+import classNames from 'classnames/bind';
+
 import styles from './textInput.module.scss';
+
+import { EyeOnIcon, EyeOffIcon, CheckIcon } from 'assets/svgs';
+
+const cx = classNames.bind(styles);
 
 interface IProp {
   type: 'text' | 'email' | 'password';
@@ -10,30 +15,25 @@ interface IProp {
   marginBottom?: string;
   marginTop?: string;
   minLength?: number;
+  textChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  blurHandler?: (e: FocusEvent<HTMLInputElement>) => void;
+  isTouched?: boolean;
+  isValid?: boolean;
 }
 
-const EMAIL_VALID_STYLE = {
-  width: '30px',
-  height: '30px',
-  backgroundColor: '#4c70ee',
-  border: '1px solid #4c70ee',
-
-  borderRadius: '100px',
-  fill: 'white',
-};
-
-const EMAIL_INVALID_STYLE = {
-  width: '30px',
-  height: '30px',
-  border: '1px solid #4c70ee',
-  opacity: '0.3',
-  backgroundColor: ' #4c70ee',
-  borderRadius: '100px',
-  fill: 'white',
-};
-
-const TextField = ({ type, placeholder, ariaLabel, required, marginTop, marginBottom, minLength }: IProp) => {
-  const [isEmailValid, setIsEmailValid] = useState(false);
+const TextField = ({
+  type,
+  placeholder,
+  ariaLabel,
+  required,
+  marginTop,
+  marginBottom,
+  minLength,
+  textChangeHandler,
+  blurHandler,
+  isTouched,
+  isValid,
+}: IProp) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowText = () => {
@@ -43,7 +43,7 @@ const TextField = ({ type, placeholder, ariaLabel, required, marginTop, marginBo
   let icon;
   switch (type) {
     case 'email':
-      icon = <CheckIcon className={styles.icon} style={isEmailValid ? EMAIL_VALID_STYLE : EMAIL_INVALID_STYLE} />;
+      icon = <CheckIcon className={cx('emailIcon', { validEmailIcon: isValid })} />;
       break;
     case 'password':
       icon = <EyeOffIcon className={styles.icon} onClick={handleShowText} />;
@@ -55,8 +55,8 @@ const TextField = ({ type, placeholder, ariaLabel, required, marginTop, marginBo
 
   if (type === 'password')
     showPassword
-      ? (icon = <EyeOnIcon className={styles.icon} onClick={handleShowText} />)
-      : (icon = <EyeOffIcon className={styles.icon} onClick={handleShowText} />);
+      ? (icon = <EyeOnIcon className={styles.passwordIcon} onClick={handleShowText} />)
+      : (icon = <EyeOffIcon className={styles.passwordIcon} onClick={handleShowText} />);
 
   return (
     <div className={styles.wrapper} style={{ marginBottom }}>
@@ -66,6 +66,9 @@ const TextField = ({ type, placeholder, ariaLabel, required, marginTop, marginBo
         placeholder={placeholder}
         aria-label={ariaLabel}
         minLength={minLength}
+        onChange={textChangeHandler}
+        onBlur={blurHandler}
+        className={cx('input', { valid: isTouched && isValid }, { invalid: isTouched && !isValid })}
       />
       {icon}
     </div>

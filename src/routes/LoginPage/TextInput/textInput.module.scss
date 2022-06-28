@@ -3,7 +3,7 @@
 .wrapper {
   position: relative;
 
-  & input {
+  & .input {
     width: 400px;
     height: 56px;
     padding: 16px 24px;
@@ -17,11 +17,39 @@
     }
   }
 
-  & .icon {
+  .valid {
+    border-color: color.$BLUE_PRIMARY;
+  }
+
+  .invalid {
+    border-color: color.$RED;
+  }
+
+  & .passwordIcon {
     position: absolute;
     top: 12px;
     right: 30px;
     width: 30px;
+    height: 30px;
     cursor: pointer;
+    border-radius: 100px;
+  }
+
+  & .emailIcon {
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: color.$BLUE_PRIMARY;
+    border: 1px solid color.$BLUE_PRIMARY;
+    border-radius: 100px;
+    opacity: 0.3;
+    fill: white;
+  }
+
+  .validEmailIcon {
+    opacity: 1;
   }
 }
