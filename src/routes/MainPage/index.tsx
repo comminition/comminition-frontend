@@ -1,9 +1,14 @@
 import Gnb from 'components/Gnb';
-
-import styles from './mainPage.module.scss';
+import Header from './Header';
 
 const MainPage = () => {
-  return <Gnb />;
+  return (
+    <>
+      <Gnb />
+      <Header />
+      <section />
+    </>
+  );
 };
 
 export default MainPage;
