@@ -1,7 +1,7 @@
-import React from 'react';
+import LoginPage from 'routes/LoginPage';
 
 const App = () => {
-  return <div>comminition directory settings</div>;
+  return <LoginPage />;
 };
 
 export default App;
