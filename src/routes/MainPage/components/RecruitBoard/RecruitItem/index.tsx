@@ -26,9 +26,13 @@ const RecruitItem = ({
   bookmark,
   isBookmarked,
 }: IProp) => {
-  const profileIcon = profileImage || <ProfileIcon />;
-  const likeIcon = isLiked ? <LikeCheckedIcon /> : <LikeIcon />;
-  const bookmarkIcon = isBookmarked ? <BookmarkCheckedIcon /> : <BookmarkIcon />;
+  const profileIcon = profileImage || <ProfileIcon className={styles.icon} />;
+  const likeIcon = isLiked ? <LikeCheckedIcon className={styles.icon} /> : <LikeIcon className={styles.icon} />;
+  const bookmarkIcon = isBookmarked ? (
+    <BookmarkCheckedIcon className={styles.icon} />
+  ) : (
+    <BookmarkIcon className={styles.icon} />
+  );
 
   return (
     <div className={styles.recruitItem}>
@@ -43,7 +47,7 @@ const RecruitItem = ({
             {likeIcon} {like}
           </div>
           <div>
-            <CommentIcon />
+            <CommentIcon className={styles.icon} />
             {comments}
           </div>
           <div>
