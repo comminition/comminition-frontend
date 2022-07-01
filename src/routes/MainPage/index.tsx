@@ -29,6 +29,7 @@ const MainPage = () => {
         <InfoBoard />
         <InfoBoard />
       </section>
+      <section className={styles.recruit}>모집</section>
     </>
   );
 };
