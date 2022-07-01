@@ -1,6 +1,6 @@
 import GithubCalendar from 'components/GithubCalendar';
 import Gnb from 'components/Gnb';
-import InfoList from './components/InfoList';
+import InfoBoard from './components/InfoBoard';
 import Header from './Header';
 
 import styles from './mainPage.module.scss';
@@ -62,7 +62,7 @@ const MainPage = () => {
         </div>
       </section>
       <section className={styles.info}>
-        <InfoList />
+        <InfoBoard />
       </section>
     </>
   );
