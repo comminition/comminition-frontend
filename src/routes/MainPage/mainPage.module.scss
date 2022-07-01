@@ -19,6 +19,10 @@
 }
 
 .info {
+  display: flex;
+  gap: 96px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 752px;
   background-color: color.$GREY_TERTIARY;

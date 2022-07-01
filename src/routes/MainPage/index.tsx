@@ -5,42 +5,6 @@ import Header from './Header';
 
 import styles from './mainPage.module.scss';
 
-const DUMMY_DATA = [
-  {
-    title: '게시글 제목',
-    content:
-      'Nostrud exercitation sunt ut voluptate amet ea quis. Mollit ad laborum enim aliqua. Lorem ipsum aliqua minim ipsum ipsum et duis aliquip culpa amet nostrud.',
-    date: '2021.06.30',
-    isLiked: true,
-    like: 454,
-    comments: 97,
-    bookmark: 2,
-    isBookmarked: false,
-  },
-  {
-    title: '게시글 제목',
-    content:
-      'Nostrud exercitation sunt ut voluptate amet ea quis. Mollit ad laborum enim aliqua. Lorem ipsum aliqua minim ipsum ipsum et duis aliquip culpa amet nostrud.',
-    date: '2021.06.30',
-    isLiked: false,
-    like: 454,
-    comments: 97,
-    bookmark: 2,
-    isBookmarked: false,
-  },
-  {
-    title: '게시글 제목',
-    content:
-      'Nostrud exercitation sunt ut voluptate amet ea quis. Mollit ad laborum enim aliqua. Lorem ipsum aliqua minim ipsum ipsum et duis aliquip culpa amet nostrud.',
-    date: '2021.06.30',
-    isLiked: false,
-    like: 454,
-    comments: 97,
-    bookmark: 2,
-    isBookmarked: false,
-  },
-];
-
 const MainPage = () => {
   return (
     <>
@@ -62,6 +26,7 @@ const MainPage = () => {
         </div>
       </section>
       <section className={styles.info}>
+        <InfoBoard />
         <InfoBoard />
       </section>
     </>
