@@ -1,0 +1,52 @@
+@use 'styles/constants/colors' as color;
+
+.recruitItem {
+  width: 264px;
+  height: 332px;
+
+  .image {
+    display: block;
+    width: 264px;
+    height: 194px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  h1 {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: color.$GREY_PRIMARY;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: color.$GREY_PRIMARY;
+
+    .icons {
+      display: flex;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}

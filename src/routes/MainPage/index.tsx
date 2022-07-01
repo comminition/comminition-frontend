@@ -1,6 +1,7 @@
 import GithubCalendar from 'components/GithubCalendar';
 import Gnb from 'components/Gnb';
 import InfoBoard from './components/InfoBoard';
+import RecruitBoard from './components/RecruitBoard';
 import Header from './Header';
 
 import styles from './mainPage.module.scss';
@@ -29,7 +30,9 @@ const MainPage = () => {
         <InfoBoard />
         <InfoBoard />
       </section>
-      <section className={styles.recruit}>모집</section>
+      <section className={styles.recruit}>
+        <RecruitBoard />
+      </section>
     </>
   );
 };

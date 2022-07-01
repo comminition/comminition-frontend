@@ -1,4 +1,4 @@
-import InfoItem from '../InfoItem';
+import InfoItem from './InfoItem';
 import styles from './infoBoard.module.scss';
 
 interface IProp {
