@@ -15,8 +15,17 @@ const RecruitBoard = () => {
     author: '김떙땡',
   };
   return (
-    <div>
-      <RecruitItem {...content} />
+    <div className={styles.recruitBoard}>
+      <div className={styles.header}>
+        <h1>사이드 프로젝트 홍보/구인</h1>
+        <button type="button">더보기</button>
+      </div>
+      <div className={styles.content}>
+        <RecruitItem {...content} />
+        <RecruitItem {...content} />
+        <RecruitItem {...content} />
+        <RecruitItem {...content} />
+      </div>
     </div>
   );
 };
