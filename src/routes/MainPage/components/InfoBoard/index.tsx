@@ -1,5 +1,6 @@
 import InfoItem from './InfoItem';
 import styles from './infoBoard.module.scss';
+import RoundButton from 'components/UI/RoundButton';
 
 interface IProp {
   title?: string;
@@ -23,7 +24,7 @@ const InfoList = ({ title = '정보 게시판' }: IProp) => {
     <div className={styles.board}>
       <div className={styles.header}>
         <h1>{title}</h1>
-        <button type="button">더보기</button>
+        <RoundButton size="medium" backgroundColor="white" text="더보기" />
       </div>
       <div className={styles.content}>
         <InfoItem {...content} />

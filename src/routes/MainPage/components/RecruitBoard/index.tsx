@@ -1,6 +1,7 @@
 import styles from './recruitBoard.module.scss';
 import RecruitItem from './RecruitItem';
 import sampleImage from '../../../../assets/images/sampleImage.png';
+import RoundButton from 'components/UI/RoundButton';
 
 const RecruitBoard = () => {
   const content = {
@@ -18,7 +19,7 @@ const RecruitBoard = () => {
     <div className={styles.recruitBoard}>
       <div className={styles.header}>
         <h1>사이드 프로젝트 홍보/구인</h1>
-        <button type="button">더보기</button>
+        <RoundButton size="medium" backgroundColor="white" text="더보기" />
       </div>
       <div className={styles.content}>
         <RecruitItem {...content} />
