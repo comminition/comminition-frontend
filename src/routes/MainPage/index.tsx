@@ -1,7 +1,7 @@
-import GithubCalendar from 'components/GithubCalendar';
 import Gnb from 'components/Gnb';
 import InfoBoard from './components/InfoBoard';
 import InquiryBoard from './components/InquiryBoard';
+import ContributionBoard from './components/ContributionBoard';
 import RecruitBoard from './components/RecruitBoard';
 import Footer from './Footer';
 import Header from './Header';
@@ -14,19 +14,7 @@ const MainPage = () => {
       <Gnb />
       <Header />
       <section className={styles.contributon}>
-        <h1>내 잔디밭</h1>
-        <div className={styles.content}>
-          <div>
-            김땡땡
-            <br />
-            컴퓨터공학 전공 <br />
-            60182135 <br />
-            <address>용인시 처인구</address>
-            frontend
-            <br />
-          </div>
-          <GithubCalendar username={process.env.REACT_APP_USERNAME} />
-        </div>
+        <ContributionBoard />
       </section>
       <section className={styles.info}>
         <InfoBoard />
