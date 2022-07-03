@@ -9,3 +9,4 @@ export { ReactComponent as BookmarkIcon } from './bookmark.svg';
 export { ReactComponent as BookmarkCheckedIcon } from './bookmark_clicked.svg';
 export { ReactComponent as CommentIcon } from './comment.svg';
 export { ReactComponent as CommentCheckedIcon } from './comment_clicked.svg';
+export { ReactComponent as SearchIcon } from './reading-glasses.svg';
