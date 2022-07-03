@@ -1,4 +1,5 @@
 import RoundButton from 'components/UI/RoundButton';
+
 import styles from './inquiryBoard.module.scss';
 
 const InquiryBoard = () => {

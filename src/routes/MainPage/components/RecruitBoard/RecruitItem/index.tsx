@@ -1,4 +1,5 @@
 import styles from './recruitItem.module.scss';
+
 import { BookmarkCheckedIcon, BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
 
 interface IProp {

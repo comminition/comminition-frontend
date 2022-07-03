@@ -1,6 +1,7 @@
 import InfoItem from './InfoItem';
-import styles from './infoBoard.module.scss';
 import RoundButton from 'components/UI/RoundButton';
+
+import styles from './infoBoard.module.scss';
 
 interface IProp {
   title?: string;
