@@ -1,0 +1,27 @@
+@use 'styles/constants/colors' as color;
+
+.button {
+  width: 90px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  color: color.$BLACK;
+  border: 1px solid color.$GREY_PRIMARY;
+  border-radius: 30px;
+}
+
+.medium {
+  width: 90px;
+}
+
+.large {
+  width: 131px;
+}
+
+.white {
+  background-color: color.$WHITE;
+}
+
+.transparent {
+  background-color: transparent;
+}

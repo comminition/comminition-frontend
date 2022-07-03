@@ -1,0 +1,22 @@
+@use 'styles/constants/colors' as color;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background-color: color.$NAVY;
+
+  p {
+    font-size: 48px;
+    font-weight: 700;
+    color: color.$WHITE;
+    letter-spacing: 0.4px;
+
+    span {
+      color: color.$BLUE_PRIMARY;
+      letter-spacing: 0.1px;
+    }
+  }
+}
