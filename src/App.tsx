@@ -1,7 +1,7 @@
 import Layout from 'components/UI/Layout';
 import { Route, Routes } from 'react-router-dom';
-import InfoPage from 'routes/InfoPage';
 
+import QuestionPage from 'routes/QuestionPage';
 import LoginPage from 'routes/LoginPage';
 import MainPage from 'routes/MainPage';
 
@@ -10,7 +10,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="" element={<MainPage />} />
-        <Route path="info" element={<InfoPage />} />
+        <Route path="info" element={<QuestionPage />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
     </Routes>
