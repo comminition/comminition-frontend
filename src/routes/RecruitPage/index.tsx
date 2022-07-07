@@ -1,5 +1,11 @@
+import Side from './Side';
+
 const InfoPage = () => {
-  return <div>정보게시판</div>;
+  return (
+    <div>
+      <Side />
+    </div>
+  );
 };
 
 export default InfoPage;

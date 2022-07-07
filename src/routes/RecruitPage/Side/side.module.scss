@@ -1,0 +1,19 @@
+.side {
+  width: 395px;
+  padding-top: 98px;
+  padding-left: 100px;
+
+  & > h1 {
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    width: 252px;
+  }
+}
