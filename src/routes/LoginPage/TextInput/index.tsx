@@ -1,9 +1,9 @@
-import { ChangeEvent, FocusEvent, useState } from 'react';
+import { ChangeEvent, FocusEvent } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './textInput.module.scss';
 
-import { EyeOnIcon, EyeOffIcon, CheckIcon } from 'assets/svgs';
+import { CollectIcon, InCollectIcon } from 'assets/svgs';
 
 const cx = classNames.bind(styles);
 
@@ -34,34 +34,14 @@ const TextField = ({
   isTouched,
   isValid,
 }: IProp) => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleShowText = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  let icon;
-  switch (type) {
-    case 'email':
-      icon = <CheckIcon className={cx('emailIcon', { validEmailIcon: isValid })} />;
-      break;
-    case 'password':
-      icon = <EyeOffIcon className={styles.icon} onClick={handleShowText} />;
-      break;
-    case 'text':
-      icon = null;
-      break;
-  }
-
-  if (type === 'password')
-    showPassword
-      ? (icon = <EyeOnIcon className={styles.passwordIcon} onClick={handleShowText} />)
-      : (icon = <EyeOffIcon className={styles.passwordIcon} onClick={handleShowText} />);
+  let icon = null;
+  if (isTouched && isValid) icon = <CollectIcon className={cx('icon')} />;
+  if (isTouched && !isValid) icon = <InCollectIcon className={cx('icon')} />;
 
   return (
     <div className={styles.wrapper} style={{ marginBottom }}>
       <input
-        type={type === 'password' && showPassword ? 'text' : type}
+        type={type}
         required={required}
         placeholder={placeholder}
         aria-label={ariaLabel}

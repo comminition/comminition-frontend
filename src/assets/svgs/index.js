@@ -17,3 +17,5 @@ export { ReactComponent as LeftAngleIcon } from './angle-left.svg';
 export { ReactComponent as LeftAngleClickedIcon } from './angle-left-clicked.svg';
 export { ReactComponent as LeftAnglesIcon } from './angles-left.svg';
 export { ReactComponent as LeftAnglesClickedIcon } from './angles-left-clicked.svg';
+export { ReactComponent as CollectIcon } from './collect.svg';
+export { ReactComponent as InCollectIcon } from './incollect.svg';
