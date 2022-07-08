@@ -1,8 +1,11 @@
 import useInput from 'hooks/useInput';
+import classNames from 'classnames/bind';
 
 import TextInput from './TextInput';
 
 import styles from './loginPage.module.scss';
+
+const cx = classNames.bind(styles);
 
 const LoginPage = () => {
   const {
@@ -19,8 +22,8 @@ const LoginPage = () => {
   } = useInput('password');
 
   return (
-    <div className={styles.loginPage}>
-      <form className={styles.loginForm}>
+    <div className={cx('loginPage')}>
+      <form className={cx('loginForm')}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>
@@ -48,12 +51,22 @@ const LoginPage = () => {
           isTouched={isPasswordTouched}
           isValid={isPasswordValid}
         />
-        <button type="submit" className={styles.loginBtn}>
+        <button type="submit" className={cx('loginBtn')}>
           로그인
         </button>
-        <button type="button" className={styles.btn}>
-          비밀번호를 잊으셨나요?
-        </button>
+        <div className={cx('loginMenu')}>
+          <button type="button" className={cx('btn')}>
+            아이디 찾기
+          </button>
+          <div className={cx('divider')} />
+          <button type="button" className={cx('btn')}>
+            비밀번호 찾기
+          </button>
+          <div className={cx('divider')} />
+          <button type="button" className={cx('btn')}>
+            회원가입
+          </button>
+        </div>
       </form>
     </div>
   );
