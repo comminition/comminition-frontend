@@ -1,4 +1,4 @@
-import RecruitItem from 'routes/MainPage/components/RecruitBoard/RecruitItem';
+import RecruitItem from 'components/UI/RecruitItem';
 import sampleImage from '../../../assets/images/sampleImage.png';
 
 import styles from './main.module.scss';
