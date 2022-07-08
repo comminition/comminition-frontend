@@ -2,11 +2,15 @@ import classNames from 'classnames/bind';
 
 import styles from './gnb.module.scss';
 
+interface IProp {
+  backgroundColor: 'blue' | 'navy';
+}
+
 const cx = classNames.bind(styles);
 
-const Gnb = () => {
+const Gnb = ({ backgroundColor }: IProp) => {
   return (
-    <nav className={styles.nav}>
+    <nav className={cx('nav', backgroundColor)}>
       <h1 className={styles.title}>MJU Comminition</h1>
       <ul className={styles.menu}>
         <li className={styles.link}>

@@ -1,4 +1,4 @@
-import RecruitItem from './RecruitItem';
+import RecruitItem from '../../../../components/UI/RecruitItem';
 import RoundButton from 'components/UI/RoundButton';
 
 import styles from './recruitBoard.module.scss';
