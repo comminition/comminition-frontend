@@ -9,7 +9,7 @@ const Side = () => {
       <h1>기술 스택</h1>
       <div className={styles.list}>
         {DUMMY_STACKS.map((stack) => (
-          <RoundButton size="auto" backgroundColor="white" marginBottom="marginBottom10" text={stack} />
+          <RoundButton size="auto" backgroundColor="white" text={stack} />
         ))}
       </div>
     </aside>

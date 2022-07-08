@@ -12,8 +12,7 @@
   .list {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: space-between;
+    gap: 18px 20px;
     width: 252px;
   }
 }

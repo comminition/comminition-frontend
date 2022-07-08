@@ -1,0 +1,14 @@
+@use 'styles/constants/colors' as color;
+
+.content {
+  display: flex;
+  justify-content: center;
+
+  .divider {
+    width: 1px;
+    height: 1496px;
+    margin: 0 20px;
+    margin-top: 96px;
+    background-color: color.$GREY_PRIMARY;
+  }
+}

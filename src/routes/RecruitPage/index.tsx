@@ -1,11 +1,20 @@
+import Main from './Main';
 import Side from './Side';
+import Pagenation from './Pagenation';
 
-const InfoPage = () => {
+import styles from './recruitPage.module.scss';
+
+const RecruitPage = () => {
   return (
-    <div>
-      <Side />
-    </div>
+    <>
+      <div className={styles.content}>
+        <Side />
+        <div className={styles.divider} />
+        <Main />
+      </div>
+      <Pagenation />
+    </>
   );
 };
 
-export default InfoPage;
+export default RecruitPage;
