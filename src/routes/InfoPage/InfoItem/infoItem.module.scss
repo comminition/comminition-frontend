@@ -1,0 +1,64 @@
+@use 'styles/constants/colors' as color;
+
+.infoItem {
+  width: 818px;
+  height: 127px;
+  padding: 20px 80px;
+  margin-top: 20px;
+  background-color: color.$WHITE;
+  border-radius: 8px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  .content {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: block;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: color.$GREY_PRIMARY;
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  margin-right: 4px;
+}

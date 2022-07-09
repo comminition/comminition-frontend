@@ -4,6 +4,7 @@ import RecruitPage from 'routes/RecruitPage';
 
 import LoginPage from 'routes/LoginPage';
 import MainPage from 'routes/MainPage';
+import InfoPage from 'routes/InfoPage';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route path="" element={<MainPage />} />
         <Route path="recruit" element={<RecruitPage />} />
+        <Route path="info" element={<InfoPage />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
     </Routes>

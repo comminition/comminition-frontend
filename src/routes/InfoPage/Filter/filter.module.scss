@@ -1,0 +1,18 @@
+@use 'styles/constants/colors' as color;
+
+.filter {
+  width: 225px;
+  height: 19px;
+  margin: auto 0;
+  font-size: 16px;
+
+  button {
+    margin-left: 8px;
+    font-size: 16px;
+    color: color.$GREY_PRIMARY;
+  }
+
+  & > button:active {
+    color: color.$BLUE_SECONDARY;
+  }
+}
