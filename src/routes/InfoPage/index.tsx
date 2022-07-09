@@ -30,14 +30,23 @@ const InfoPage = () => {
       <div className={styles.midDiv}>
         <div className={styles.postBody}>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
+          <hr className={styles.line}/>
           <InfoItem {...content} />
         </div>
         <div className={styles.adDiv}>
