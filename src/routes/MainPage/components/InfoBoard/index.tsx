@@ -1,4 +1,4 @@
-import InfoItem from './InfoItem';
+import InfoItem from '../../../../components/UI/InfoItem';
 import RoundButton from 'components/UI/RoundButton';
 
 import styles from './infoBoard.module.scss';
@@ -19,6 +19,8 @@ const InfoList = ({ title = '정보 게시판' }: IProp) => {
     bookmark: 2,
     isBookmarked: false,
     writer: '김떙땡',
+    width: 'medium' as const,
+    lineOfContent: 'twoLine' as const,
   };
 
   return (
