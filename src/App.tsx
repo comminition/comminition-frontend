@@ -1,9 +1,10 @@
-import Layout from 'components/UI/Layout';
 import { Route, Routes } from 'react-router-dom';
-import RecruitPage from 'routes/RecruitPage';
 
+import Layout from 'components/UI/Layout';
 import LoginPage from 'routes/LoginPage';
+import SignupPage from 'routes/SignupPage';
 import MainPage from 'routes/MainPage';
+import RecruitPage from 'routes/RecruitPage';
 import InfoPage from 'routes/InfoPage';
 import QuestionPage from 'routes/QuestionPage';
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="question" element={<QuestionPage />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
+      <Route path="signup" element={<SignupPage />} />
     </Routes>
   );
 };
