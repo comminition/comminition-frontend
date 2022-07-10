@@ -6,6 +6,7 @@ import LoginPage from 'routes/LoginPage';
 import MainPage from 'routes/MainPage';
 import InfoPage from 'routes/InfoPage';
 import QuestionPage from 'routes/QuestionPage';
+import MyPage from 'routes/MyPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="question" element={<QuestionPage />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
+      <Route path="mypage" element={<MyPage />} />
     </Routes>
   );
 };
