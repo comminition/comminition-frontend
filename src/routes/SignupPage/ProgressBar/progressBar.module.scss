@@ -1,0 +1,23 @@
+@use 'styles/constants/colors' as color;
+
+.wrapper {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  display: flex;
+  gap: 20px;
+  width: 160px;
+  height: 4px;
+  transform: translateX(-50%);
+
+  .progress {
+    width: 40px;
+    height: 4px;
+    background-color: color.$GREY_SECONDARY;
+    border-radius: 4px;
+  }
+
+  .progressed {
+    background-color: color.$BLUE_PRIMARY;
+  }
+}
