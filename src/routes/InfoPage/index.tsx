@@ -20,9 +20,9 @@ const InfoPage = () => {
   return (
     <div className={styles.infoPage}>
       <div className={styles.topDiv}>
-        <p className={styles.filter}>
+        <span className={styles.filter}>
           <Filter />
-        </p>
+        </span>
         <button type="button" className={styles.postButton}>
           <PostButton />
         </button>

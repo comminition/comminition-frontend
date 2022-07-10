@@ -20,9 +20,9 @@ const QuestionPage = () => {
   return (
     <div className={styles.questionPage}>
       <div className={styles.topDiv}>
-        <p className={styles.filter}>
+        <span className={styles.filter}>
           <Filter />
-        </p>
+        </span>
         <button type="button" className={styles.postButton}>
           <PostButton />
         </button>
