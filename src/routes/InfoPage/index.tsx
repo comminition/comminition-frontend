@@ -1,6 +1,6 @@
 import styles from './infoPage.module.scss';
 import Pagenation from 'routes/RecruitPage/Pagenation';
-import InfoItem from './InfoItem/index';
+import InfoItem from '../../components/UI/InfoItem';
 import { PostButton, Advertisement } from 'assets/svgs';
 import Filter from './Filter';
 
@@ -16,6 +16,8 @@ const InfoPage = () => {
     bookmark: 2,
     isBookmarked: false,
     writer: '김떙땡',
+    width: 'wide' as const,
+    lineOfContent: 'oneLine' as const,
   };
   return (
     <div className={styles.infoPage}>
@@ -30,23 +32,23 @@ const InfoPage = () => {
       <div className={styles.midDiv}>
         <div className={styles.postBody}>
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
-          <hr className={styles.line}/>
+          <hr className={styles.line} />
           <InfoItem {...content} />
         </div>
         <div className={styles.adDiv}>
