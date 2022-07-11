@@ -3,11 +3,11 @@ import classNames from 'classnames/bind';
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
 
-import styles from './signup.module.scss';
+import styles from './getUserInfoPage.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SignupPage = () => {
+const GetUserInfoPage = () => {
   const {
     handleInputChange: handleUsernameChange,
     handleBlur: handleUsernameBlur,
@@ -29,7 +29,7 @@ const SignupPage = () => {
 
   return (
     <div className={styles.signupPage}>
-      <div className={styles.signupForm}>
+      <form className={styles.signupForm}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>
@@ -75,9 +75,9 @@ const SignupPage = () => {
         <button type="submit" className={cx('nextBtn')}>
           다음으로
         </button>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default SignupPage;
+export default GetUserInfoPage;

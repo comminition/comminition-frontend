@@ -40,23 +40,5 @@
       background-color: color.$BLUE_PRIMARY;
       border-radius: 30px;
     }
-
-    .btn {
-      font-size: 16px;
-      font-weight: 400;
-    }
-
-    .loginMenu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .divider {
-        width: 1px;
-        height: 16px;
-        margin: 0 15px;
-        background-color: color.$GREY_PRIMARY;
-      }
-    }
   }
 }
