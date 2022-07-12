@@ -1,0 +1,47 @@
+@use 'styles/constants/colors' as color;
+
+.interest {
+  display: table;
+  width: 505px;
+  height: 211px;
+
+  span {
+    margin-top: 0;
+    margin-left: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .interestBody {
+    display: table;
+    height: 177px;
+    margin-top: 10px;
+    border: 1px solid color.$GREY_SECONDARY;
+    border-radius: 8px;
+
+    .interestBodyItems {
+      display: flex;
+      justify-content: space-between;
+      width: 505px;
+      height: 58px;
+      padding: 20px;
+      font-size: 16px;
+    }
+
+    :first-child {
+      font-weight: 400;
+    }
+
+    :last-child {
+      font-weight: 600;
+    }
+  }
+
+  hr {
+    display: flex;
+    width: 465px;
+    margin: 0 auto;
+    border: 0;
+    border-bottom: 1px solid color.$GREY_SECONDARY;
+  }
+}
