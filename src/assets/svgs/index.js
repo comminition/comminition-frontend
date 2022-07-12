@@ -21,3 +21,4 @@ export { ReactComponent as CollectIcon } from './collect.svg';
 export { ReactComponent as InCollectIcon } from './incollect.svg';
 export { ReactComponent as PostButton } from './postbutton.svg';
 export { ReactComponent as Advertisement } from './advertisement.svg';
+export { ReactComponent as ProfileImage } from './mypageProfileImage.svg';
