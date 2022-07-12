@@ -10,11 +10,11 @@ const Profile = () => {
       <div className={styles.category}>
         <div className={styles.items}>
           <span>닉네임</span>
-          <span>김땡</span>
+          <span className={styles.nickname}>김땡</span>
         </div>
         <div className={styles.items}>
           <span>분야 </span>
-          <span>Frontend Developer</span>
+          <span className={styles.part}>Frontend Developer</span>
         </div>
         <div className={styles.items}>
           <span>전공 </span>

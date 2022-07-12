@@ -23,6 +23,15 @@
     .items {
       display: flex;
 
+      .nickname {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .part {
+        color: color.$BLUE_PRIMARY;
+      }
+
       :first-child {
         width: 47px;
         margin-left: auto;
@@ -33,8 +42,6 @@
 
       :last-child {
         width: 166px;
-        font-size: 18px;
-        font-weight: 700;
       }
 
       :first-child + :last-child {
