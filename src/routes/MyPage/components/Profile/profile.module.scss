@@ -24,7 +24,6 @@
       display: flex;
 
       .nickname {
-        font-size: 18px;
         font-weight: 700;
       }
 
@@ -42,6 +41,7 @@
 
       :last-child {
         width: 166px;
+        font-size: 18px;
       }
 
       :first-child + :last-child {
