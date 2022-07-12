@@ -1,5 +1,47 @@
+@use 'styles/constants/colors' as color;
+
 .activity {
+  display: table;
   width: 1030px;
   height: 211px;
-  background-color: yellow;
+
+  span {
+    margin-top: 0;
+    margin-left: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .activityDiv {
+    margin-top: 19px;
+    border: 1px solid color.$GREY_SECONDARY;
+    border-radius: 8px;
+
+    .activityBody {
+      display: flex;
+      width: 1030px;
+      height: 84px;
+
+      .items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 515px;
+
+        p {
+          margin-left: 10px;
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .items + .items {
+      border-left: 1px solid color.$GREY_SECONDARY;
+    }
+
+    .activityBody + .activityBody {
+      border-top: 1px solid color.$GREY_SECONDARY;
+    }
+  }
 }

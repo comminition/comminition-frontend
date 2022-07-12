@@ -23,3 +23,4 @@ export { ReactComponent as PostButton } from './postbutton.svg';
 export { ReactComponent as Advertisement } from './advertisement.svg';
 export { ReactComponent as ProfileImage } from './mypageProfileImage.svg';
 export { ReactComponent as MyPageRightArrow } from './keyboard-backspace.svg';
+export { ReactComponent as PostCheckedIcon } from './create-checked.svg';
