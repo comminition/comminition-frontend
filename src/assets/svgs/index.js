@@ -22,3 +22,4 @@ export { ReactComponent as InCollectIcon } from './incollect.svg';
 export { ReactComponent as PostButton } from './postbutton.svg';
 export { ReactComponent as Advertisement } from './advertisement.svg';
 export { ReactComponent as ProfileImage } from './mypageProfileImage.svg';
+export { ReactComponent as MyPageRightArrow } from './keyboard-backspace.svg';

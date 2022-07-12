@@ -1,5 +1,23 @@
 .contribution {
+  display: flex;
   width: 1047px;
   height: 249px;
-  background-color: aqua;
+
+  button {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 138px;
+    height: 24px;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-right: 9px;
+    font-size: 16px;
+    font-weight: 400;
+
+    p {
+      margin-top: 3px;
+      margin-right: 6px;
+    }
+  }
 }
