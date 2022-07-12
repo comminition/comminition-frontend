@@ -8,7 +8,7 @@ import SearchBar from '../SearchBar';
 const Layout = () => {
   const path = useLocation();
 
-  const navigationColor = path.pathname === '/' ? 'navy' : 'blue';
+  const navigationColor = path.pathname === '/' || path.pathname === '/mypage' ? 'navy' : 'blue';
   const header = path.pathname === '/' ? <Header /> : <SearchBar />;
 
   return (
