@@ -2,8 +2,10 @@ import classNames from 'classnames/bind';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
+import Comminition from 'apis/comminition';
 
 import styles from './getUserInfoPage.module.scss';
+import { FormEvent } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -13,23 +15,35 @@ const GetUserInfoPage = () => {
     handleBlur: handleUsernameBlur,
     isTouched: isUsernameTouched,
     isValid: isUsernameValid,
+    value: enteredUsername,
   } = useInput('username');
   const {
     handleInputChange: handleEmailChange,
     handleBlur: handleEmailBlur,
     isTouched: isEmailTouched,
     isValid: isEmailValid,
+    value: enteredEmail,
   } = useInput('email');
   const {
     handleInputChange: handlePasswordChange,
     handleBlur: handlePasswordBlur,
     isTouched: isPasswordTouched,
     isValid: isPasswordValid,
+    value: enteredPassword,
   } = useInput('password');
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (isUsernameValid && isEmailValid && isPasswordValid) {
+      const {
+        data: { id, nickname, email },
+      } = await Comminition.createUser(enteredUsername, enteredEmail, enteredPassword);
+    }
+  };
 
   return (
     <div className={styles.signupPage}>
-      <form className={styles.signupForm}>
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>

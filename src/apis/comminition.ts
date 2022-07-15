@@ -1,7 +1,8 @@
+import { AxiosPromise } from 'axios';
 import Axios from '../utils/axios';
 
 export default {
-  createUser(email: string, nickname: string, password: string) {
+  createUser(nickname: string, email: string, password: string): AxiosPromise<ICreateUser> {
     return Axios({
       url: '/v1/user',
       method: 'post',
