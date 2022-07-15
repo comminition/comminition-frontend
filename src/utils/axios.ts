@@ -9,20 +9,20 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  function (config) {
+  (config) => {
     return config;
   },
-  function (error) {
+  (error) => {
     return Promise.reject(error);
   },
 );
 
 instance.interceptors.response.use(
-  function (response) {
+  (response) => {
     console.log(response);
     return response;
   },
-  function (error) {
+  (error) => {
     return Promise.reject(error);
   },
 );
