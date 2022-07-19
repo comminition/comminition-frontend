@@ -17,6 +17,7 @@
     "react-github-calendar": "^3.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -66,6 +67,7 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "@types/react-transition-group": "^4.4.5",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "babel-plugin-named-exports-order": "^0.0.2",
