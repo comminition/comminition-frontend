@@ -6,10 +6,13 @@ import Comminition from 'apis/comminition';
 
 import styles from './getUserInfoPage.module.scss';
 import { FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 const GetUserInfoPage = () => {
+  const navigate = useNavigate();
+
   const {
     handleInputChange: handleUsernameChange,
     handleBlur: handleUsernameBlur,
@@ -38,6 +41,9 @@ const GetUserInfoPage = () => {
       const {
         data: { id, nickname, email },
       } = await Comminition.createUser(enteredUsername, enteredEmail, enteredPassword);
+      if (id && nickname && email) {
+        navigate('/signup/emailValidation');
+      }
     }
   };
 
