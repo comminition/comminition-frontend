@@ -1,9 +1,11 @@
 @use 'styles/constants/colors' as color;
+@use 'styles/constants/levels' as level;
 
 .wrapper {
   position: absolute;
   top: 8%;
   left: 50%;
+  z-index: level.$TOP;
   display: flex;
   gap: 20px;
   width: 160px;

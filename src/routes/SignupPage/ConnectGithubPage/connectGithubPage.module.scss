@@ -1,6 +1,8 @@
 @use 'styles/constants/colors' as color;
+@use 'styles/constants/levels' as level;
 
 .connectGithubPage {
+  z-index: level.$MIDDLE;
   display: flex;
   align-items: center;
   justify-content: center;
