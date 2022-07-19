@@ -1,12 +1,14 @@
+import { FormEvent } from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
 import Comminition from 'apis/comminition';
+import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './getUserInfoPage.module.scss';
-import { FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -48,7 +50,14 @@ const GetUserInfoPage = () => {
   };
 
   return (
-    <div className={styles.signupPage}>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className={styles.signupPage}
+    >
       <form className={styles.signupForm} onSubmit={handleSubmit}>
         <h1>
           <mark>MJU</mark> Comminition
@@ -96,7 +105,7 @@ const GetUserInfoPage = () => {
           다음으로
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

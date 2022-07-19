@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import TextField from 'components/UI/TextField';
+
 import useInput from 'hooks/useInput';
+import TextField from 'components/UI/TextField';
+import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './emailValidationPage.module.scss';
 
@@ -25,7 +29,14 @@ const EmailValidationPage = () => {
   } = useInput('code');
 
   return (
-    <div className={styles.signupPage}>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className={styles.signupPage}
+    >
       <form className={styles.signupForm}>
         <h1>
           <mark>MJU</mark> Comminition
@@ -62,7 +73,7 @@ const EmailValidationPage = () => {
           {isValidCodeSent ? '다음으로' : '인증메일 보내기'}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
