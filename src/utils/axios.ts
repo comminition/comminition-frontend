@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { IComminitionAxiosError } from 'types/comminition';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BASEURL,
@@ -9,20 +10,20 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  (config) => {
+  (config: AxiosRequestConfig) => {
     return config;
   },
-  (error) => {
+  (error: AxiosError) => {
     return Promise.reject(error);
   },
 );
 
 instance.interceptors.response.use(
-  (response) => {
+  (response: AxiosResponse) => {
     return response;
   },
-  (error) => {
-    return Promise.reject(error);
+  (error: IComminitionAxiosError) => {
+    return Promise.reject(new Error(error.response.data.errorMessage));
   },
 );
 

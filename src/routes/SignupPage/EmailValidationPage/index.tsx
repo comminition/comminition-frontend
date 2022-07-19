@@ -8,6 +8,7 @@ import TextField from 'components/UI/TextField';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './emailValidationPage.module.scss';
+import { Toaster } from 'react-hot-toast';
 
 const cx = classNames.bind(styles);
 
@@ -73,6 +74,7 @@ const EmailValidationPage = () => {
           {isValidCodeSent ? '다음으로' : '인증메일 보내기'}
         </button>
       </form>
+      <Toaster />
     </motion.div>
   );
 };

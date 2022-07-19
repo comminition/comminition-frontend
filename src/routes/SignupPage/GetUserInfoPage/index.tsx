@@ -9,6 +9,7 @@ import Comminition from 'apis/comminition';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './getUserInfoPage.module.scss';
+import { Toaster, toast } from 'react-hot-toast';
 
 const cx = classNames.bind(styles);
 
@@ -40,11 +41,17 @@ const GetUserInfoPage = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (isUsernameValid && isEmailValid && isPasswordValid) {
-      const {
-        data: { id, nickname, email },
-      } = await Comminition.createUser(enteredUsername, enteredEmail, enteredPassword);
-      if (id && nickname && email) {
-        navigate('/signup/emailValidation');
+      try {
+        const {
+          data: { id, nickname, email },
+        } = await Comminition.createUser(enteredUsername, enteredEmail, enteredPassword);
+        if (id && nickname && email) {
+          navigate('/signup/emailValidation');
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          toast(error.message);
+        }
       }
     }
   };
@@ -105,6 +112,7 @@ const GetUserInfoPage = () => {
           다음으로
         </button>
       </form>
+      <Toaster />
     </motion.div>
   );
 };
