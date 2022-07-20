@@ -26,7 +26,7 @@ const App = () => {
           <Route path="question" element={<QuestionPage />} />
           <Route path="mypage" element={<MyPage />} />
         </Route>
-        <Route path="1" element={<LoginPage />} />
+        <Route path="login" element={<LoginPage />} />
       </Routes>
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
