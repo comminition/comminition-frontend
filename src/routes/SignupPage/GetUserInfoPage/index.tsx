@@ -2,9 +2,9 @@ import { FormEvent, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import type { RootState } from 'redux/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { enteredPersonalInfo } from 'redux/signupSlice';
+import { Toaster, toast } from 'react-hot-toast';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
@@ -12,13 +12,11 @@ import Comminition from 'apis/comminition';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './getUserInfoPage.module.scss';
-import { Toaster, toast } from 'react-hot-toast';
 
 const cx = classNames.bind(styles);
 
 const GetUserInfoPage = () => {
   const navigate = useNavigate();
-  const { id: storedId } = useSelector((state: RootState) => state.signup);
   const dispatch = useDispatch();
 
   const {
@@ -61,10 +59,6 @@ const GetUserInfoPage = () => {
       }
     }
   };
-
-  useEffect(() => {
-    if (storedId) navigate('/signup/emailValidation');
-  }, [storedId, navigate]);
 
   return (
     <motion.div
