@@ -1,3 +1,4 @@
+import { stat } from 'fs';
 import { ChangeEvent, FocusEvent, useReducer } from 'react';
 
 interface IState {
@@ -10,7 +11,7 @@ interface IAction {
   type: string;
   payload: {
     value: string;
-    inputType: 'email' | 'password';
+    inputType: 'email' | 'password' | 'username' | 'code';
   };
 }
 
@@ -34,6 +35,14 @@ const reducer = (state: IState, action: IAction) => {
         if (action.payload.value.length >= 8) return { isTouched: true, value: action.payload.value, isValid: true };
         return { ...state, value: action.payload.value, isValid: false };
       }
+      if (action.payload.inputType === 'username') {
+        if (action.payload.value.length >= 2) return { isTouched: true, value: action.payload.value, isValid: true };
+        return { ...state, value: action.payload.value, isValid: false };
+      }
+      if (action.payload.inputType === 'code') {
+        if (state.value.length > 0) return { isTouched: true, value: action.payload.value, isValid: true };
+        return { ...state, value: action.payload.value, isValid: false };
+      }
       break;
 
     case 'BLUR':
@@ -45,11 +54,19 @@ const reducer = (state: IState, action: IAction) => {
         if (state.value.length >= 8) return { ...state, isTouched: true, isValid: true };
         return { ...state, isTouched: true, isValid: false };
       }
+      if (action.payload.inputType === 'username') {
+        if (state.value.length >= 2) return { ...state, isTouched: true, isValid: true };
+        return { ...state, isTouched: true, isValid: false };
+      }
+      if (action.payload.inputType === 'code') {
+        if (state.value.length > 0) return { ...state, isTouched: true, isValid: true };
+        return { ...state, isTouched: true, isValid: false };
+      }
   }
   return { ...state };
 };
 
-const useInput = (type: 'email' | 'password') => {
+const useInput = (type: 'email' | 'password' | 'username' | 'code') => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,7 +1,7 @@
 import useInput from 'hooks/useInput';
 import classNames from 'classnames/bind';
 
-import TextInput from './TextInput';
+import TextField from '../../components/UI/TextField';
 
 import styles from './loginPage.module.scss';
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
           <mark>MJU</mark> Comminition
         </h1>
         <h2>로그인</h2>
-        <TextInput
+        <TextField
           type="email"
           placeholder="학교 계정 메일"
           required
@@ -38,8 +38,9 @@ const LoginPage = () => {
           blurHandler={handleEmailBlur}
           isTouched={isEmailTouched}
           isValid={isEmailValid}
+          showIcon
         />
-        <TextInput
+        <TextField
           type="password"
           placeholder="비밀번호"
           required
@@ -50,6 +51,7 @@ const LoginPage = () => {
           blurHandler={handlePasswordBlur}
           isTouched={isPasswordTouched}
           isValid={isPasswordValid}
+          showIcon
         />
         <button type="submit" className={cx('loginBtn')}>
           로그인

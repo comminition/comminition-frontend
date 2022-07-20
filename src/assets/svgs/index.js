@@ -21,6 +21,8 @@ export { ReactComponent as CollectIcon } from './collect.svg';
 export { ReactComponent as InCollectIcon } from './incollect.svg';
 export { ReactComponent as PostButton } from './postbutton.svg';
 export { ReactComponent as Advertisement } from './advertisement.svg';
+export { ReactComponent as GithubIcon } from './github.svg';
+export { ReactComponent as GoIcon } from './go.svg';
 export { ReactComponent as ProfileImage } from './mypageProfileImage.svg';
 export { ReactComponent as MyPageRightArrow } from './keyboard-backspace.svg';
 export { ReactComponent as PostCheckedIcon } from './create-checked.svg';
