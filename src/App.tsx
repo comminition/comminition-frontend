@@ -7,6 +7,7 @@ import MainPage from 'routes/MainPage';
 import RecruitPage from 'routes/RecruitPage';
 import InfoPage from 'routes/InfoPage';
 import QuestionPage from 'routes/QuestionPage';
+import MyPage from 'routes/MyPage';
 import SignupLayout from 'components/Layouts/SignupLayout';
 import EmailValidationPage from 'routes/SignupPage/EmailValidationPage';
 import ConnectGitHubPage from 'routes/SignupPage/ConnectGithubPage';
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="recruit" element={<RecruitPage />} />
           <Route path="info" element={<InfoPage />} />
           <Route path="question" element={<QuestionPage />} />
+          <Route path="mypage" element={<MyPage />} />
         </Route>
         <Route path="1" element={<LoginPage />} />
       </Routes>

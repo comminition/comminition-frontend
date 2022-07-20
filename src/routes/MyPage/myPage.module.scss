@@ -1,0 +1,52 @@
+@use 'styles/constants/colors' as color;
+
+.myPage {
+  display: table;
+  width: 100%;
+
+  .profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 98px;
+  }
+
+  .underProfile {
+    display: flex;
+    justify-content: space-between;
+    width: 1030px;
+    margin: 70px auto 0;
+  }
+
+  .contribution {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+  .activity {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-start;
+    width: 1030px;
+    margin: 0 auto;
+
+    button {
+      /* Auto layout */
+      display: flex;
+      justify-content: center;
+      padding: 8px 30px;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      font-size: 17px;
+      font-weight: 400;
+      color: color.$GREY_PRIMARY;
+      border: 1px solid color.$GREY_PRIMARY;
+      border-radius: 30px;
+    }
+  }
+}
