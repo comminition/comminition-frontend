@@ -5,8 +5,9 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_BASEURL,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
-  timeout: 1000,
+  timeout: 2000,
 });
 
 instance.interceptors.request.use(
