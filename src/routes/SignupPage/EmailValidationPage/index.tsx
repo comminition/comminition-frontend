@@ -1,6 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames/bind';
+import type { RootState } from 'redux/store';
+import { useSelector } from 'react-redux';
+import { Toaster, toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
@@ -8,12 +12,13 @@ import Comminition from 'apis/comminition';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './emailValidationPage.module.scss';
-import { Toaster, toast } from 'react-hot-toast';
 
 const cx = classNames.bind(styles);
 
 const EmailValidationPage = () => {
+  const navigate = useNavigate();
   const [isValidCodeSent, setIsValidCodeSent] = useState(false);
+  const { email: storedEmail } = useSelector((state: RootState) => state.signup);
 
   const {
     handleInputChange: handleEmailChange,
@@ -28,18 +33,33 @@ const EmailValidationPage = () => {
     handleBlur: handleCodeBlur,
     isTouched: isCodeTouched,
     isValid: isCodeValid,
+    value: enteredCode,
   } = useInput('code');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(enteredEmail);
     if (isEmailValid) {
-      try {
-        await Comminition.certificateEmail(enteredEmail);
-        setIsValidCodeSent(true);
-      } catch (error) {
-        if (error instanceof Error) {
-          toast(error.message);
+      if (enteredEmail !== storedEmail) {
+        toast('입력한 이메일이 일치하지 않습니다.');
+        return;
+      }
+      if (!isValidCodeSent) {
+        try {
+          await Comminition.certificateEmail(enteredEmail);
+          setIsValidCodeSent(true);
+        } catch (error) {
+          if (error instanceof Error) {
+            toast(error.message);
+          }
+        }
+      } else {
+        try {
+          await Comminition.sendCertificationCode(enteredEmail, enteredCode);
+          navigate('/signup/emailValidation');
+        } catch (error) {
+          if (error instanceof Error) {
+            toast(error.message);
+          }
         }
       }
     }
