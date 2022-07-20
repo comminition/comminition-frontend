@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
+import Comminition from 'apis/comminition';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './emailValidationPage.module.scss';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 
 const cx = classNames.bind(styles);
 
@@ -20,6 +20,7 @@ const EmailValidationPage = () => {
     handleBlur: handleEmailBlur,
     isTouched: isEmailTouched,
     isValid: isEmailValid,
+    value: enteredEmail,
   } = useInput('email');
 
   const {
@@ -28,6 +29,21 @@ const EmailValidationPage = () => {
     isTouched: isCodeTouched,
     isValid: isCodeValid,
   } = useInput('code');
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    console.log(enteredEmail);
+    if (isEmailValid) {
+      try {
+        await Comminition.certificateEmail(enteredEmail);
+        setIsValidCodeSent(true);
+      } catch (error) {
+        if (error instanceof Error) {
+          toast(error.message);
+        }
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -38,7 +54,7 @@ const EmailValidationPage = () => {
       transition={pageTransition}
       className={styles.signupPage}
     >
-      <form className={styles.signupForm}>
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>
