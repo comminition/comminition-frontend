@@ -24,9 +24,10 @@
       display: block;
       font-size: 16px;
       font-weight: 400;
+      color: color.$WHITE;
 
       & a {
-        color: color.$WHITE;
+        color: inherit;
       }
     }
 

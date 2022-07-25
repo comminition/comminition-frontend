@@ -1,17 +1,20 @@
 import useInput from 'hooks/useInput';
 import classNames from 'classnames/bind';
-import { useAppDispatch } from 'redux/hooks';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { login } from 'redux/authSlice';
+import { FormEvent, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import TextField from '../../components/UI/TextField';
 
 import styles from './loginPage.module.scss';
-import { FormEvent } from 'react';
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
+  const store = useAppSelector((state) => state.login);
+  const navigate = useNavigate();
 
   const {
     handleInputChange: handleEmailChange,
@@ -34,6 +37,10 @@ const LoginPage = () => {
       dispatch(login({ email: enteredEmail, password: enteredPassword }));
     }
   };
+
+  useEffect(() => {
+    if (store.isAuthenticated) navigate('/');
+  }, [navigate, store.isAuthenticated]);
 
   return (
     <div className={cx('loginPage')}>

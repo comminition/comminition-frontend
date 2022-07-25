@@ -20,6 +20,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state: Auth) => {
+      state.status = 'success';
       state.isAuthenticated = false;
       state.token = undefined;
     },
