@@ -12,7 +12,9 @@ const initialState: Auth = { token: undefined, isAuthenticated: false, status: n
 
 export const login = createAsyncThunk('authSlice/login', async (loginData: Ilogin) => {
   const response = await Comminition.login(loginData.email, loginData.password);
-  return response.data.token;
+  const { token } = response.data;
+  localStorage.setItem('token', token);
+  return token;
 });
 
 export const authSlice = createSlice({
