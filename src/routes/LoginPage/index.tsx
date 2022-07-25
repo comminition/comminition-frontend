@@ -1,29 +1,43 @@
 import useInput from 'hooks/useInput';
 import classNames from 'classnames/bind';
+import { useAppDispatch } from 'redux/hooks';
+import { login } from 'redux/authSlice';
 
 import TextField from '../../components/UI/TextField';
 
 import styles from './loginPage.module.scss';
+import { FormEvent } from 'react';
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
+  const dispatch = useAppDispatch();
+
   const {
     handleInputChange: handleEmailChange,
     handleBlur: handleEmailBlur,
     isTouched: isEmailTouched,
     isValid: isEmailValid,
+    value: enteredEmail,
   } = useInput('email');
   const {
     handleInputChange: handlePasswordChange,
     handleBlur: handlePasswordBlur,
     isTouched: isPasswordTouched,
     isValid: isPasswordValid,
+    value: enteredPassword,
   } = useInput('password');
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (isEmailValid && isPasswordValid) {
+      dispatch(login({ email: enteredEmail, password: enteredPassword }));
+    }
+  };
 
   return (
     <div className={cx('loginPage')}>
-      <form className={cx('loginForm')}>
+      <form className={cx('loginForm')} onSubmit={handleSubmit}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>

@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import signupReducer from './signupSlice';
+import loginReduer from './authSlice';
 
-const store = configureStore({ reducer: { signup: signupReducer } });
+const store = configureStore({ reducer: { signup: signupReducer, login: loginReduer } });
 
 export type RootState = ReturnType<typeof store.getState>;
 
