@@ -15,3 +15,12 @@ interface IComminitionAxiosError extends AxiosError {
     };
   };
 }
+
+interface Ilogin {
+  email: string;
+  password: string;
+}
+
+interface IloginResponse {
+  token: string;
+}
