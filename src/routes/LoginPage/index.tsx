@@ -38,6 +38,10 @@ const LoginPage = () => {
     }
   };
 
+  const handleSignupButton = () => {
+    navigate('/signup/getInfo');
+  };
+
   useEffect(() => {
     if (store.isAuthenticated) navigate('/');
   }, [navigate, store.isAuthenticated]);
@@ -86,7 +90,7 @@ const LoginPage = () => {
             비밀번호 찾기
           </button>
           <div className={cx('divider')} />
-          <button type="button" className={cx('btn')}>
+          <button type="button" className={cx('btn')} onClick={() => handleSignupButton()}>
             회원가입
           </button>
         </div>
