@@ -2,22 +2,24 @@ import { FormEvent, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import { useDispatch } from 'react-redux';
-import { enteredPersonalInfo } from 'redux/signupSlice';
-import { Toaster, toast } from 'react-hot-toast';
+import { sendPersonalInfo } from 'redux/signupSlice';
+import { Toaster } from 'react-hot-toast';
+import type { RootState } from 'redux/store';
+import { useSelector } from 'react-redux';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
-import Comminition from 'apis/comminition';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './getUserInfoPage.module.scss';
+import { useAppDispatch } from 'redux/hooks';
 
 const cx = classNames.bind(styles);
 
 const GetUserInfoPage = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { status } = useSelector((state: RootState) => state.signup);
 
   const {
     handleInputChange: handleUsernameChange,
@@ -41,24 +43,16 @@ const GetUserInfoPage = () => {
     value: enteredPassword,
   } = useInput('password');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (isUsernameValid && isEmailValid && isPasswordValid) {
-      try {
-        const {
-          data: { id, nickname, email },
-        } = await Comminition.createUser(enteredUsername, enteredEmail, enteredPassword);
-        dispatch(enteredPersonalInfo({ id, nickname, email }));
-        if (id && nickname && email) {
-          navigate('/signup/emailValidation');
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          toast(error.message);
-        }
-      }
+      dispatch(sendPersonalInfo({ username: enteredUsername, email: enteredEmail, password: enteredPassword }));
     }
   };
+
+  useEffect(() => {
+    if (status === 'success') navigate('/signup/emailValidation');
+  }, [status, navigate]);
 
   return (
     <motion.div
