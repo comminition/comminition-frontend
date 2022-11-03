@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import { sendPersonalInfo } from 'redux/signupSlice';
-import { Toaster } from 'react-hot-toast';
-import type { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
+import type { RootState } from 'redux/store';
 
 import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
@@ -110,7 +109,6 @@ const GetUserInfoPage = () => {
           다음으로
         </button>
       </form>
-      <Toaster />
     </motion.div>
   );
 };

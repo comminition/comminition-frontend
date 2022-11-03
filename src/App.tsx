@@ -12,6 +12,7 @@ import SignupLayout from 'components/Layouts/SignupLayout';
 import EmailValidationPage from 'routes/SignupPage/EmailValidationPage';
 import ConnectGitHubPage from 'routes/SignupPage/ConnectGithubPage';
 import { AnimatePresence } from 'framer-motion';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const location = useLocation();
@@ -37,6 +38,7 @@ const App = () => {
           </Route>
         </Routes>
       </AnimatePresence>
+      <Toaster />
     </>
   );
 };

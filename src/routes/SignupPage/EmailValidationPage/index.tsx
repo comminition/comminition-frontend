@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import classNames from 'classnames/bind';
 import type { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 import useInput from 'hooks/useInput';
@@ -110,7 +110,6 @@ const EmailValidationPage = () => {
           {isValidCodeSent ? '다음으로' : '인증메일 보내기'}
         </button>
       </form>
-      <Toaster />
     </motion.div>
   );
 };
