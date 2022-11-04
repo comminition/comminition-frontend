@@ -6,6 +6,7 @@
   background-color: color.$BLUE_PRIMARY;
 
   h1 {
+    width: 100%;
     padding-top: 82px;
     padding-bottom: 50px;
     font-size: 30px;
@@ -36,7 +37,7 @@
         color: color.$GREY_PRIMARY;
         background-image: url('../../../assets/svgs/reading-glasses.svg');
         background-repeat: no-repeat;
-        background-position: 25px center;
+        background-position: 0 center;
       }
     }
 

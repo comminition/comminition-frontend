@@ -11,6 +11,4 @@ const Template: ComponentStory<typeof SearchBar> = (args) => <SearchBar {...args
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-  title: '검색어를 입력하세요',
-};
+Primary.args = {};
