@@ -27,7 +27,9 @@ const RecruitItem = ({
   bookmark,
   isBookmarked,
 }: IProp) => {
-  const profileIcon = profileImage || <ProfileIcon className={styles.icon} />;
+  const profileIcon = (profileImage && <img src={profileImage} alt="profile" className={styles.profileImage} />) || (
+    <ProfileIcon className={styles.icon} />
+  );
   const likeIcon = isLiked ? <LikeCheckedIcon className={styles.icon} /> : <LikeIcon className={styles.icon} />;
   const bookmarkIcon = isBookmarked ? (
     <BookmarkCheckedIcon className={styles.icon} />
