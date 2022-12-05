@@ -22,8 +22,8 @@ const Gnb = ({ backgroundColor }: IProp) => {
   };
 
   useEffect(() => {
-    if (!store.isAuthenticated) navigate('/login');
-  }, [navigate, store.isAuthenticated]);
+    if (!store.accessToken) navigate('/login');
+  }, [navigate, store.accessToken]);
 
   return (
     <nav className={cx('nav', backgroundColor)}>
