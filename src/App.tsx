@@ -1,6 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 
-import Comminition from 'apis/comminition';
 import Layout from 'components/Layouts/Layout';
 import LoginPage from 'routes/LoginPage';
 import MainPage from 'routes/MainPage';
@@ -9,7 +8,6 @@ import InfoPage from 'routes/InfoPage';
 import QuestionPage from 'routes/QuestionPage';
 import MyPage from 'routes/MyPage';
 import { Toaster } from 'react-hot-toast';
-import { useEffect } from 'react';
 import RedirectPage from 'routes/LoginPage/RedirectPage';
 
 const App = () => {

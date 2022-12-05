@@ -63,18 +63,4 @@ export default {
       },
     });
   },
-
-  githubLogin() {
-    return Axios({
-      url: '/v1/github/start',
-      method: 'get',
-    });
-  },
-
-  githubFinish() {
-    return Axios({
-      url: '/v1/github/start',
-      method: 'get',
-    });
-  },
 };
