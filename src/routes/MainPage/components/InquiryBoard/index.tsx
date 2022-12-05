@@ -1,4 +1,4 @@
-import RoundButton from 'components/UI/RoundButton';
+import RoundButton from 'components/UI/Buttons/RoundButton';
 
 import styles from './inquiryBoard.module.scss';
 

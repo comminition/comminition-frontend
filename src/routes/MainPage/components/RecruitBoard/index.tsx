@@ -1,5 +1,5 @@
 import RecruitItem from '../../../../components/UI/RecruitItem';
-import RoundButton from 'components/UI/RoundButton';
+import RoundButton from 'components/UI/Buttons/RoundButton';
 
 import styles from './recruitBoard.module.scss';
 

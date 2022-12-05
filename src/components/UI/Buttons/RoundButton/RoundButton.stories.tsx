@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import RoundButton from '.';
 
 export default {
-  title: 'Comminition/Round Button',
+  title: 'Comminition/UI/Buttons/Round Button',
   component: RoundButton,
 } as ComponentMeta<typeof RoundButton>;
 
