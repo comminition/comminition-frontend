@@ -11,7 +11,9 @@ const Layout = () => {
   const navigationColor = path.pathname === '/' || path.pathname === '/mypage' ? 'navy' : 'blue';
   const header = path.pathname === '/' ? <Header /> : <SearchBar />;
 
-  return (
+  return path.pathname === '/login' ? (
+    <Outlet />
+  ) : (
     <>
       <Gnb backgroundColor={navigationColor} />
       {header}
