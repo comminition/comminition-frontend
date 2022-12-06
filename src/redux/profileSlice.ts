@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import comminition from 'apis/comminition';
 
@@ -36,6 +37,19 @@ export const profileSlice = createSlice({
   name: 'profileSlice',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(loadUserProfile.fulfilled, (state, action) => {
+      state.email = action.payload.email;
+      state.field = action.payload.field;
+      state.github = action.payload.github;
+      state.interested = action.payload.interested;
+      state.introduce = action.payload.introduce;
+      state.local = action.payload.local;
+      state.major = action.payload.major;
+      state.nickname = action.payload.nickname;
+      state.skills = action.payload.skills;
+    });
+  },
 });
 
 export const {} = profileSlice.actions;
