@@ -14,7 +14,7 @@ const RedirectPage = () => {
 
   useEffect(() => {
     if (storedToken) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [navigate, storedToken]);
 

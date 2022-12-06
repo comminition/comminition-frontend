@@ -23,8 +23,9 @@ export const authSlice = createSlice({
         state.userId = null;
         state.accessToken = null;
         state.status = 'fail';
+        return;
       }
-      const { userId }: DecodedJWT = jwtDecode(action.payload!);
+      const { userId }: DecodedJWT = jwtDecode(action.payload);
       state.userId = userId;
       state.accessToken = action.payload;
       state.status = 'success';
