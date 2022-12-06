@@ -1,5 +1,5 @@
-import { createListenerMiddleware, createSlice } from '@reduxjs/toolkit';
-import authSlice, { login } from './authSlice';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import comminition from 'apis/comminition';
 
 export interface Profile {
   nickname: string | null;
@@ -24,6 +24,13 @@ const initialState: Profile = {
   interested: [],
   github: null,
 };
+
+export const loadUserProfile = createAsyncThunk('profileSlice/loadUserProfile', async (userId: string) => {
+  const {
+    data: { profile },
+  } = await comminition.getUserProfile(userId);
+  return profile;
+});
 
 export const profileSlice = createSlice({
   name: 'profileSlice',

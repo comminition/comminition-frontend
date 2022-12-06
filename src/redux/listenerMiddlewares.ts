@@ -1,5 +1,6 @@
 import { createListenerMiddleware, TypedStartListening, addListener, TypedAddListener } from '@reduxjs/toolkit';
 import type { RootState, AppDispatch } from './store';
+import { loadUserProfile } from './profileSlice';
 
 export const listenerMiddleware = createListenerMiddleware();
 
@@ -14,6 +15,8 @@ startAppListening({
     return previousState.login.userId !== currentState.login.userId;
   },
   effect: async (action, listnerApi) => {
-    console.log('called in listener');
+    const { userId } = listnerApi.getState().login;
+    if (!userId) return;
+    listnerApi.dispatch(loadUserProfile(userId));
   },
 });

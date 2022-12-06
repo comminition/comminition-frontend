@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios';
-import { ICreateUser, IloginResponse } from 'types/comminition';
+import { ICreateUser, IGetUserProfileResponse, IloginResponse } from 'types/comminition';
 import Axios from '../utils/axios';
 
 export default {
@@ -47,11 +47,12 @@ export default {
     });
   },
 
-  getUserProfile(id: string) {
+  getUserProfile(id: string): AxiosPromise<IGetUserProfileResponse> {
     return Axios({
       url: `/v1/user/${id}`,
     });
   },
+
   login(email: string, password: string): AxiosPromise<IloginResponse> {
     return Axios({
       url: '/v1/user',
