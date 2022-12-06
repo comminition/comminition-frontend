@@ -52,7 +52,6 @@ export default {
       url: `/v1/user/${id}`,
     });
   },
-
   login(email: string, password: string): AxiosPromise<IloginResponse> {
     return Axios({
       url: '/v1/user',

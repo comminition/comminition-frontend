@@ -1,6 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Ilogin } from 'types/comminition';
-import Comminition from '../apis/comminition';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import jwtDecode from 'jwt-decode';
 
 interface Auth {
@@ -15,13 +13,6 @@ interface DecodedJWT {
 }
 
 const initialState: Auth = { userId: null, accessToken: null, status: null };
-
-// export const login = createAsyncThunk('authSlice/login', async (loginData: Ilogin) => {
-//   const response = await Comminition.login(loginData.email, loginData.password);
-//   const { accessToken } = response.data;
-//   localStorage.setItem('accessToken', accessToken);
-//   return accessToken;
-// });
 
 export const authSlice = createSlice({
   name: 'authSlice',
@@ -44,21 +35,6 @@ export const authSlice = createSlice({
       state.userId = null;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(login.pending, (state) => {
-  //     state.status = 'loading';
-  //   });
-  //   builder.addCase(login.fulfilled, (state, { payload }) => {
-  //     state.status = 'success';
-  //     state.isAuthenticated = true;
-  //     state.accessToken = payload;
-  //   });
-  //   builder.addCase(login.rejected, (state) => {
-  //     state.status = 'fail';
-  //     state.isAuthenticated = false;
-  //     state.accessToken = undefined;
-  //   });
-  // },
 });
 
 export const { login, logout } = authSlice.actions;
