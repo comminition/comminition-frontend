@@ -1,0 +1,29 @@
+@use 'styles/constants/colors' as color;
+
+.editModal {
+  display: table;
+  align-items: center;
+  justify-content: center;
+  background-color: color.$WHITE;
+  border: 1px solid color.$GREY_SECONDARY;
+  border-radius: 8px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 124px;
+    height: 47px;
+    font-size: 16px;
+    font-weight: 400;
+    color: color.$GREY_PRIMARY;
+  }
+
+  button:first-child {
+    border-bottom: 1px solid color.$GREY_SECONDARY;
+  }
+
+  button:last-child {
+    color: color.$RED;
+  }
+}

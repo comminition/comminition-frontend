@@ -7,6 +7,8 @@ import MainPage from 'routes/MainPage';
 import InfoPage from 'routes/InfoPage';
 import QuestionPage from 'routes/QuestionPage';
 import MyPage from 'routes/MyPage';
+import PostPage from 'routes/InfoPage/PostPage';
+import ReadPage from 'routes/InfoPage/ReadPage';
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="" element={<MainPage />} />
         <Route path="recruit" element={<RecruitPage />} />
         <Route path="info" element={<InfoPage />} />
+        <Route path="info/post" element={<PostPage />} />
+        <Route path="info/read" element={<ReadPage />} />
         <Route path="question" element={<QuestionPage />} />
         <Route path="mypage" element={<MyPage />} />
       </Route>
