@@ -1,8 +1,9 @@
+import './page.css';
+
 import React from 'react';
 
 // eslint-disable-next-line import/extensions
 import { Header } from './Header';
-import './page.css';
 
 type User = {
   name: string;

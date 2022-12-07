@@ -1,4 +1,5 @@
-import { RightAnglesIcon, RightAngleIcon, LeftAnglesIcon, LeftAngleIcon } from 'assets/svgs';
+import { LeftAngleIcon,LeftAnglesIcon, RightAngleIcon, RightAnglesIcon } from 'assets/svgs';
+
 import styles from './pagenation.module.scss';
 
 const Pagenation = () => {

@@ -1,9 +1,8 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import classNames from 'classnames/bind';
-
-import styles from './textInput.module.scss';
-
 import { CollectIcon, InCollectIcon } from 'assets/svgs';
+import classNames from 'classnames/bind';
+import { ChangeEvent, FocusEvent } from 'react';
+
+import styles from './textField.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +18,7 @@ interface IProp {
   blurHandler?: (e: FocusEvent<HTMLInputElement>) => void;
   isTouched?: boolean;
   isValid?: boolean;
+  showIcon: boolean;
 }
 
 const TextField = ({
@@ -33,6 +33,7 @@ const TextField = ({
   blurHandler,
   isTouched,
   isValid,
+  showIcon,
 }: IProp) => {
   let icon = null;
   if (isTouched && isValid) icon = <CollectIcon className={cx('icon')} />;
@@ -50,7 +51,7 @@ const TextField = ({
         onBlur={blurHandler}
         className={cx('input', { valid: isTouched && isValid }, { invalid: isTouched && !isValid })}
       />
-      {icon}
+      {showIcon && icon}
     </div>
   );
 };

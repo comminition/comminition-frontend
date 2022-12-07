@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+
 import styles from './searchBar.module.scss';
 
 interface IProp {

@@ -1,8 +1,7 @@
+import { BookmarkCheckedIcon,BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
 import classNames from 'classnames/bind';
 
 import styles from './infoItem.module.scss';
-
-import { LikeCheckedIcon, ProfileIcon, CommentIcon, BookmarkIcon, LikeIcon, BookmarkCheckedIcon } from 'assets/svgs';
 
 interface IProp {
   title: string;

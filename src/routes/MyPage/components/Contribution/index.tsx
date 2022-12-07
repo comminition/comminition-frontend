@@ -1,6 +1,7 @@
-import GitHubCalendar from 'react-github-calendar';
-import styles from './contribution.module.scss';
 import { MyPageRightArrow } from 'assets/svgs';
+import GitHubCalendar from 'react-github-calendar';
+
+import styles from './contribution.module.scss';
 
 const Contribution = () => {
   const username: string = process.env.REACT_APP_USERNAME ?? '';

@@ -1,8 +1,9 @@
-import styles from './questionPage.module.scss';
+import { Advertisement,PostButton } from 'assets/svgs';
 import Pagenation from 'routes/RecruitPage/Pagenation';
-import QuestionItem from './QuestionItem/index';
-import { PostButton, Advertisement } from 'assets/svgs';
+
 import Filter from './Filter';
+import QuestionItem from './QuestionItem/index';
+import styles from './questionPage.module.scss';
 
 const QuestionPage = () => {
   const content = {

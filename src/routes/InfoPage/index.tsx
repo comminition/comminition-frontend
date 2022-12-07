@@ -1,8 +1,9 @@
-import styles from './infoPage.module.scss';
+import { Advertisement,PostButton } from 'assets/svgs';
 import Pagenation from 'routes/RecruitPage/Pagenation';
+
 import InfoItem from '../../components/UI/InfoItem';
-import { PostButton, Advertisement } from 'assets/svgs';
 import Filter from './Filter';
+import styles from './infoPage.module.scss';
 import { Link } from 'react-router-dom';
 
 const InfoPage = () => {

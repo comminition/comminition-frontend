@@ -1,73 +1,25 @@
-import useInput from 'hooks/useInput';
+import comminition from 'apis/comminition';
 import classNames from 'classnames/bind';
-
-import TextInput from './TextInput';
+import LoginButton from 'components/UI/Buttons/LoginButton';
 
 import styles from './loginPage.module.scss';
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
-  const {
-    handleInputChange: handleEmailChange,
-    handleBlur: handleEmailBlur,
-    isTouched: isEmailTouched,
-    isValid: isEmailValid,
-  } = useInput('email');
-  const {
-    handleInputChange: handlePasswordChange,
-    handleBlur: handlePasswordBlur,
-    isTouched: isPasswordTouched,
-    isValid: isPasswordValid,
-  } = useInput('password');
+  const handleClick = () => {
+    window.location.assign(process.env.REACT_APP_OAUTH_URI as string);
+  };
 
   return (
     <div className={cx('loginPage')}>
-      <form className={cx('loginForm')}>
+      <div className={cx('loginForm')}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>
         <h2>로그인</h2>
-        <TextInput
-          type="email"
-          placeholder="학교 계정 메일"
-          required
-          ariaLabel="email"
-          marginBottom="15px"
-          textChangeHandler={handleEmailChange}
-          blurHandler={handleEmailBlur}
-          isTouched={isEmailTouched}
-          isValid={isEmailValid}
-        />
-        <TextInput
-          type="password"
-          placeholder="비밀번호"
-          required
-          ariaLabel="password"
-          marginBottom="30px"
-          minLength={8}
-          textChangeHandler={handlePasswordChange}
-          blurHandler={handlePasswordBlur}
-          isTouched={isPasswordTouched}
-          isValid={isPasswordValid}
-        />
-        <button type="submit" className={cx('loginBtn')}>
-          로그인
-        </button>
-        <div className={cx('loginMenu')}>
-          <button type="button" className={cx('btn')}>
-            아이디 찾기
-          </button>
-          <div className={cx('divider')} />
-          <button type="button" className={cx('btn')}>
-            비밀번호 찾기
-          </button>
-          <div className={cx('divider')} />
-          <button type="button" className={cx('btn')}>
-            회원가입
-          </button>
-        </div>
-      </form>
+        <LoginButton onClick={handleClick} />
+      </div>
     </div>
   );
 };

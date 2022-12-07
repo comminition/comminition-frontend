@@ -1,6 +1,6 @@
-import InfoItem from '../../../../components/UI/InfoItem';
-import RoundButton from 'components/UI/RoundButton';
+import RoundButton from 'components/UI/Buttons/RoundButton';
 
+import InfoItem from '../../../../components/UI/InfoItem';
 import styles from './infoBoard.module.scss';
 
 interface IProp {

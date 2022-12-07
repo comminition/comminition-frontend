@@ -1,6 +1,6 @@
 import RecruitItem from 'components/UI/RecruitItem';
-import sampleImage from '../../../assets/images/sampleImage.png';
 
+import sampleImage from '../../../assets/images/sampleImage.png';
 import styles from './main.module.scss';
 
 const content = {

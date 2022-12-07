@@ -1,8 +1,7 @@
 import Main from './Main';
-import Side from './Side';
 import Pagenation from './Pagenation';
-
 import styles from './recruitPage.module.scss';
+import Side from './Side';
 
 const RecruitPage = () => {
   return (
