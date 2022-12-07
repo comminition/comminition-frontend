@@ -1,100 +1,24 @@
-import useInput from 'hooks/useInput';
 import classNames from 'classnames/bind';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { login } from 'redux/authSlice';
-import { FormEvent, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import TextField from '../../components/UI/TextField';
-
 import styles from './loginPage.module.scss';
+import LoginButton from 'components/UI/Buttons/LoginButton';
+import comminition from 'apis/comminition';
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
-  const dispatch = useAppDispatch();
-  const store = useAppSelector((state) => state.login);
-  const navigate = useNavigate();
-
-  const {
-    handleInputChange: handleEmailChange,
-    handleBlur: handleEmailBlur,
-    isTouched: isEmailTouched,
-    isValid: isEmailValid,
-    value: enteredEmail,
-  } = useInput('email');
-  const {
-    handleInputChange: handlePasswordChange,
-    handleBlur: handlePasswordBlur,
-    isTouched: isPasswordTouched,
-    isValid: isPasswordValid,
-    value: enteredPassword,
-  } = useInput('password');
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (isEmailValid && isPasswordValid) {
-      dispatch(login({ email: enteredEmail, password: enteredPassword }));
-    }
+  const handleClick = () => {
+    window.location.assign(process.env.REACT_APP_OAUTH_URI as string);
   };
-
-  const handleSignupButton = () => {
-    navigate('/signup/getInfo');
-  };
-
-  useEffect(() => {
-    if (store.isAuthenticated) navigate('/');
-  }, [navigate, store.isAuthenticated]);
 
   return (
     <div className={cx('loginPage')}>
-      <form className={cx('loginForm')} onSubmit={handleSubmit}>
+      <div className={cx('loginForm')}>
         <h1>
           <mark>MJU</mark> Comminition
         </h1>
         <h2>로그인</h2>
-        <TextField
-          type="email"
-          placeholder="학교 계정 메일"
-          required
-          ariaLabel="email"
-          marginBottom="15px"
-          textChangeHandler={handleEmailChange}
-          blurHandler={handleEmailBlur}
-          isTouched={isEmailTouched}
-          isValid={isEmailValid}
-          showIcon
-        />
-        <TextField
-          type="password"
-          placeholder="비밀번호"
-          required
-          ariaLabel="password"
-          marginBottom="30px"
-          minLength={8}
-          textChangeHandler={handlePasswordChange}
-          blurHandler={handlePasswordBlur}
-          isTouched={isPasswordTouched}
-          isValid={isPasswordValid}
-          showIcon
-        />
-        <button type="submit" className={cx('loginBtn')}>
-          로그인
-        </button>
-        <div className={cx('loginMenu')}>
-          <button type="button" className={cx('btn')}>
-            아이디 찾기
-          </button>
-          <div className={cx('divider')} />
-          <button type="button" className={cx('btn')}>
-            비밀번호 찾기
-          </button>
-          <div className={cx('divider')} />
-          <button type="button" className={cx('btn')} onClick={() => handleSignupButton()}>
-            회원가입
-          </button>
-        </div>
-      </form>
+        <LoginButton onClick={handleClick} />
+      </div>
     </div>
   );
 };

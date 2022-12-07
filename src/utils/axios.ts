@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IComminitionAxiosError } from 'types/comminition';
+import store from 'redux/store';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BASEURL,
@@ -12,7 +13,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    if (config.headers) config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    const { accessToken } = store.getState().login;
+    if (config.headers) config.headers.authorization = `Bearer ${accessToken}`;
     return config;
   },
   (error: AxiosError) => {

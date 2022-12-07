@@ -1,8 +1,7 @@
 import classNames from 'classnames/bind';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout } from 'redux/authSlice';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { useAppDispatch } from 'redux/hooks';
 
 import styles from './gnb.module.scss';
 
@@ -10,20 +9,19 @@ interface IProp {
   backgroundColor: 'blue' | 'navy';
 }
 
+const { localStorage } = window;
+
 const cx = classNames.bind(styles);
 
 const Gnb = ({ backgroundColor }: IProp) => {
-  const store = useAppSelector((state) => state.login);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
+    localStorage.removeItem('token');
+    navigate('/login');
   };
-
-  useEffect(() => {
-    if (!store.isAuthenticated) navigate('/login');
-  }, [navigate, store.isAuthenticated]);
 
   return (
     <nav className={cx('nav', backgroundColor)}>

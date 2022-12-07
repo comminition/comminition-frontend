@@ -1,48 +1,42 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Ilogin } from 'types/comminition';
-import Comminition from '../apis/comminition';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import jwtDecode from 'jwt-decode';
 
 interface Auth {
-  token: string | undefined;
-  isAuthenticated: boolean;
+  userId: string | null;
+  accessToken: string | null;
   status: 'success' | 'fail' | 'loading' | null;
 }
 
-const initialState: Auth = { token: undefined, isAuthenticated: false, status: null };
+interface DecodedJWT {
+  userId: string;
+  iat: number;
+}
 
-export const login = createAsyncThunk('authSlice/login', async (loginData: Ilogin) => {
-  const response = await Comminition.login(loginData.email, loginData.password);
-  const { token } = response.data;
-  localStorage.setItem('token', token);
-  return token;
-});
+const initialState: Auth = { userId: null, accessToken: null, status: null };
 
 export const authSlice = createSlice({
   name: 'authSlice',
   initialState,
   reducers: {
+    login: (state: Auth, action: PayloadAction<string | null>) => {
+      if (!action.payload) {
+        state.userId = null;
+        state.accessToken = null;
+        state.status = 'fail';
+        return;
+      }
+      const { userId }: DecodedJWT = jwtDecode(action.payload);
+      state.userId = userId;
+      state.accessToken = action.payload;
+      state.status = 'success';
+    },
     logout: (state: Auth) => {
       state.status = 'success';
-      state.isAuthenticated = false;
-      state.token = undefined;
+      state.accessToken = null;
+      state.userId = null;
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(login.pending, (state) => {
-      state.status = 'loading';
-    });
-    builder.addCase(login.fulfilled, (state, { payload }) => {
-      state.status = 'success';
-      state.isAuthenticated = true;
-      state.token = payload;
-    });
-    builder.addCase(login.rejected, (state) => {
-      state.status = 'fail';
-      state.isAuthenticated = false;
-      state.token = undefined;
-    });
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;

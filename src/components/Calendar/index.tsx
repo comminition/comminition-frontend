@@ -1,10 +1,9 @@
 import GitHubCalendar from 'react-github-calendar';
+import { useAppSelector } from 'redux/hooks';
 
-interface IProp {
-  username: string | undefined;
-}
+const Calendar = () => {
+  const username = useAppSelector((state) => state.profile.nickname);
 
-const Calendar = ({ username }: IProp) => {
   if (!username) return null;
 
   return <GitHubCalendar username={username} />;

@@ -24,3 +24,17 @@ interface Ilogin {
 interface IloginResponse {
   token: string;
 }
+
+interface IGetUserProfileResponse {
+  profile: {
+    nickname: string | null;
+    field: string | null;
+    major: string | null;
+    local: string | null;
+    skills: string[];
+    email: string | null;
+    introduce: string | null;
+    interested: string[];
+    github: string | null;
+  };
+}

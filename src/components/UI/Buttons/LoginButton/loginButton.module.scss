@@ -1,0 +1,27 @@
+.loginBtn {
+  position: relative;
+  width: 400px;
+  height: 56px;
+  padding-left: 70px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 30px;
+
+  &::before {
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    content: url('/assets/svgs/github.svg');
+    filter: drop-shadow(0 4px 4px rgba(black, 0.25));
+  }
+
+  &::after {
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    content: url('/assets/svgs/go.svg');
+  }
+}
