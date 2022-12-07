@@ -1,5 +1,13 @@
 import { AxiosPromise } from 'axios';
-import { ICreateUser, IGetUserProfileResponse, IloginResponse } from 'types/comminition';
+import {
+  ICreateUser,
+  IGetInfoPostContentResponse,
+  IGetInfoPostListResponse,
+  IGetInquiryPostContentResponse,
+  IGetInquiryPostListResponse,
+  IGetUserProfileResponse,
+  IloginResponse,
+} from 'types/comminition';
 
 import Axios from '../utils/axios';
 
@@ -62,6 +70,58 @@ export default {
         email,
         password,
       },
+    });
+  },
+
+  /**
+   *  전체 info글을 조회합니다.
+   * @param skip 스킵할 게시물 갯수
+   * @param limit 표현할 게시물 갯수
+   * @param sort 정렬할 기준 - 기본값 date
+   * @returns
+   */
+  getInfoPostList(
+    skip: number,
+    limit: number,
+    sorted: 'like' | 'date' | 'scrap' = 'date',
+  ): AxiosPromise<IGetInfoPostListResponse> {
+    return Axios({
+      url: '/v1/info',
+      method: 'get',
+      params: {
+        skip,
+        limit,
+        sorted,
+      },
+    });
+  },
+
+  getInfoPostContent(id: string): AxiosPromise<IGetInfoPostContentResponse> {
+    return Axios({
+      url: `/v1/info/${id}`,
+      method: 'get',
+    });
+  },
+  getInquiryPostList(
+    skip: number,
+    limit: number,
+    sorted: 'like' | 'date' | 'scrap' = 'date',
+  ): AxiosPromise<IGetInquiryPostListResponse> {
+    return Axios({
+      url: '/v1/qna',
+      method: 'get',
+      params: {
+        skip,
+        limit,
+        sorted,
+      },
+    });
+  },
+
+  getInquiryPostContent(id: string): AxiosPromise<IGetInquiryPostContentResponse> {
+    return Axios({
+      url: `/v1/qna/${id}`,
+      method: 'get',
     });
   },
 };

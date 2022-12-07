@@ -1,4 +1,3 @@
-import { ProfileIcon } from 'assets/svgs';
 import GitHubCalendar from 'react-github-calendar';
 import { useAppSelector } from 'redux/hooks';
 
@@ -13,7 +12,7 @@ const ProfileBoard = () => {
       <h1>내 정보</h1>
       <div className={styles.content}>
         <Profile />
-        <GitHubCalendar username={profile.nickname!} />
+        {profile.nickname && <GitHubCalendar username={profile.nickname} />}
       </div>
     </div>
   );

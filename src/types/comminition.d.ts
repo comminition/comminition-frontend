@@ -38,3 +38,51 @@ interface IGetUserProfileResponse {
     github: string | null;
   };
 }
+
+interface IGetInfoPostList {
+  all: string[];
+}
+
+interface IGetInfoPostListResponse extends IGetInfoPostList {
+  nextFrom: number;
+  count: number;
+}
+
+interface IGetInfoPostContentResponse {
+  info: {
+    _id: string;
+    title: string;
+    content: string;
+    writer: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  comments: number;
+  scraps: number;
+  likes: number;
+}
+
+interface IGetInquiryPostList {
+  all: string[];
+}
+
+interface IGetInquiryPostListResponse extends IGetInfoPostList {
+  nextFrom: number;
+  count: number;
+}
+
+interface IGetInquiryPostContentResponse {
+  info: {
+    _id: string;
+    title: string;
+    content: string;
+    writer: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  comments: number;
+  scraps: number;
+  likes: number;
+}
