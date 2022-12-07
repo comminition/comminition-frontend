@@ -1,30 +1,19 @@
 import { ProfileIcon } from 'assets/svgs';
 import GitHubCalendar from 'react-github-calendar';
+import { useAppSelector } from 'redux/hooks';
 
 import styles from './contributonBoard.module.scss';
+import Profile from './Profile';
 
 const ProfileBoard = () => {
-  const username: string = process.env.REACT_APP_USERNAME ?? '';
+  const profile = useAppSelector((state) => state.profile);
 
   return (
     <div className={styles.contributonBoard}>
-      <h1>내 잔디밭</h1>
+      <h1>내 정보</h1>
       <div className={styles.content}>
-        <div className={styles.profile}>
-          <div className={styles.primary}>
-            <div className={styles.name}>
-              <ProfileIcon className={styles.icon} />
-              김땡땡
-            </div>
-            컴퓨터공학 <br />
-            60182135 <br />
-          </div>
-          <div className={styles.secondary}>
-            <address>용인시 처인구</address>
-            frontend
-          </div>
-        </div>
-        <GitHubCalendar username={username} />
+        <Profile />
+        <GitHubCalendar username={profile.nickname!} />
       </div>
     </div>
   );

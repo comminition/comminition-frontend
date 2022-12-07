@@ -7,13 +7,14 @@ interface IProp {
   backgroundColor: 'white' | 'transparent';
   text: string;
   marginBottom?: 'marginBottom5' | 'marginBottom10';
+  marginHorizontal?: 'marginHorizontal5' | 'marginHorizontal10';
 }
 
 const cx = classNames.bind(styles);
 
-const RoundButton = ({ size, backgroundColor, text, marginBottom }: IProp) => {
+const RoundButton = ({ size, backgroundColor, text, marginBottom, marginHorizontal }: IProp) => {
   return (
-    <button type="button" className={cx('button', size, backgroundColor, marginBottom)}>
+    <button type="button" className={cx('button', size, backgroundColor, marginBottom, marginHorizontal)}>
       {text}
     </button>
   );

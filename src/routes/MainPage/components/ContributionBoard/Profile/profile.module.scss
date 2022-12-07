@@ -1,0 +1,38 @@
+@use '../../../../../styles/constants/colors' as color;
+
+.profile {
+  width: 230px;
+
+  .name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    & > span {
+      margin-left: 4px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .field {
+    font-weight: 600;
+    font-weight: 18px;
+    color: color.$BLUE_PRIMARY;
+  }
+
+  .address {
+    margin-bottom: 23px;
+  }
+
+  .skills {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
