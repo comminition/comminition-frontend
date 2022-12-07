@@ -73,7 +73,7 @@ interface IGetInquiryPostListResponse extends IGetInfoPostList {
 }
 
 interface IGetInquiryPostContentResponse {
-  info: {
+  qna: {
     _id: string;
     title: string;
     content: string;

@@ -1,28 +1,14 @@
 import RoundButton from 'components/UI/Buttons/RoundButton';
 
-import InfoItem from '../../../../components/UI/InfoItem';
+import InfoItem, { IContent } from '../../../../components/UI/InfoItem';
 import styles from './infoBoard.module.scss';
 
 interface IProp {
   title?: string;
+  items: IContent[];
 }
 
-const InfoList = ({ title = '정보 게시판' }: IProp) => {
-  const content = {
-    title: '게시글 제목',
-    content:
-      'Nostrud exercitation sunt ut voluptate amet ea quis. Mollit ad laborum enim aliqua. Lorem ipsum aliqua minim ipsum ipsum et duis aliquip culpa amet nostrud.',
-    date: '2021.06.30',
-    isLiked: true,
-    like: 454,
-    comments: 97,
-    bookmark: 2,
-    isBookmarked: false,
-    writer: '김떙땡',
-    width: 'medium' as const,
-    lineOfContent: 'twoLine' as const,
-  };
-
+const InfoList = ({ title = '정보 게시판', items }: IProp) => {
   return (
     <div className={styles.board}>
       <div className={styles.header}>
@@ -30,11 +16,11 @@ const InfoList = ({ title = '정보 게시판' }: IProp) => {
         <RoundButton size="medium" backgroundColor="white" text="더보기" />
       </div>
       <div className={styles.content}>
-        <InfoItem {...content} />
+        <InfoItem {...items[0]} lineOfContent="twoLine" width="medium" />
         <div className={styles.divider} />
-        <InfoItem {...content} />
+        <InfoItem {...items[1]} lineOfContent="twoLine" width="medium" />
         <div className={styles.divider} />
-        <InfoItem {...content} />
+        <InfoItem {...items[2]} lineOfContent="twoLine" width="medium" />
       </div>
     </div>
   );

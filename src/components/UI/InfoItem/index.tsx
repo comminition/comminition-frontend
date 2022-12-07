@@ -1,19 +1,22 @@
-import { BookmarkCheckedIcon,BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
+import { BookmarkCheckedIcon, BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
 import classNames from 'classnames/bind';
 
 import styles from './infoItem.module.scss';
 
-interface IProp {
-  title: string;
-  content: string;
-  date: string;
-  isLiked: boolean;
-  like: number;
-  comments: number;
-  bookmark: number;
-  isBookmarked: boolean;
-  writer: string;
-  profileImage?: string;
+export interface IContent {
+  title: string | undefined;
+  content: string | undefined;
+  date: string | undefined;
+  isLiked: boolean | undefined;
+  like: number | undefined;
+  comments: number | undefined;
+  bookmark: number | undefined;
+  isBookmarked: boolean | undefined;
+  writer: string | undefined;
+  profileImage?: string | undefined;
+}
+
+interface IProp extends IContent {
   width: 'medium' | 'wide';
   lineOfContent: 'oneLine' | 'twoLine';
 }
