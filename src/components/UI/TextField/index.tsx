@@ -1,9 +1,8 @@
-import { ChangeEvent, FocusEvent } from 'react';
+import { CollectIcon, InCollectIcon } from 'assets/svgs';
 import classNames from 'classnames/bind';
+import { ChangeEvent, FocusEvent } from 'react';
 
 import styles from './textField.module.scss';
-
-import { CollectIcon, InCollectIcon } from 'assets/svgs';
 
 const cx = classNames.bind(styles);
 

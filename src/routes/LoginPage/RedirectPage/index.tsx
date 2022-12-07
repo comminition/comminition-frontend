@@ -1,6 +1,6 @@
 import useAuth from 'hooks/useAuth';
 import { useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useNavigate,useSearchParams } from 'react-router-dom';
 
 const RedirectPage = () => {
   const navigate = useNavigate();

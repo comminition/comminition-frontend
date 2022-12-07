@@ -1,15 +1,14 @@
-import { Route, Routes } from 'react-router-dom';
-
 import Layout from 'components/Layouts/Layout';
-import LoginPage from 'routes/LoginPage';
-import MainPage from 'routes/MainPage';
-import RecruitPage from 'routes/RecruitPage';
-import InfoPage from 'routes/InfoPage';
-import QuestionPage from 'routes/QuestionPage';
-import MyPage from 'routes/MyPage';
-import { Toaster } from 'react-hot-toast';
 import RequireAuth from 'components/Router/RequireAuth';
+import { Toaster } from 'react-hot-toast';
+import { Route, Routes } from 'react-router-dom';
+import InfoPage from 'routes/InfoPage';
+import LoginPage from 'routes/LoginPage';
 import RedirectPage from 'routes/LoginPage/RedirectPage';
+import MainPage from 'routes/MainPage';
+import MyPage from 'routes/MyPage';
+import QuestionPage from 'routes/QuestionPage';
+import RecruitPage from 'routes/RecruitPage';
 
 const App = () => {
   return (

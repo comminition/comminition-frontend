@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IComminitionAxiosError } from 'types/comminition';
 import store from 'redux/store';
+import { IComminitionAxiosError } from 'types/comminition';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BASEURL,

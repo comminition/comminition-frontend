@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAppDispatch } from 'redux/hooks';
 import { login } from 'redux/authSlice';
+import { useAppDispatch } from 'redux/hooks';
 
 const { localStorage } = window;
 

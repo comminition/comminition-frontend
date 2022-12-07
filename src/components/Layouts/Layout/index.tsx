@@ -1,8 +1,8 @@
+import Gnb from 'components/Gnb';
+import Footer from 'components/UI/Footer';
+import Header from 'components/UI/Header';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import Gnb from 'components/Gnb';
-import Header from 'components/UI/Header';
-import Footer from 'components/UI/Footer';
 import SearchBar from '../../UI/SearchBar';
 
 const Layout = () => {

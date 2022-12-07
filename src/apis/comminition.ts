@@ -1,5 +1,6 @@
 import { AxiosPromise } from 'axios';
 import { ICreateUser, IGetUserProfileResponse, IloginResponse } from 'types/comminition';
+
 import Axios from '../utils/axios';
 
 export default {

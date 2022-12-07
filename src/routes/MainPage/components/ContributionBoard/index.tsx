@@ -1,8 +1,7 @@
+import { ProfileIcon } from 'assets/svgs';
 import GitHubCalendar from 'react-github-calendar';
 
 import styles from './contributonBoard.module.scss';
-
-import { ProfileIcon } from 'assets/svgs';
 
 const ProfileBoard = () => {
   const username: string = process.env.REACT_APP_USERNAME ?? '';

@@ -1,6 +1,6 @@
-import type { RootState } from 'redux/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { login } from 'redux/authSlice';
+import type { RootState } from 'redux/store';
 
 const { localStorage } = window;
 

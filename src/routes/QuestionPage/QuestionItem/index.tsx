@@ -1,6 +1,6 @@
-import styles from './questionItem.module.scss';
+import { BookmarkCheckedIcon,BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
 
-import { LikeCheckedIcon, ProfileIcon, CommentIcon, BookmarkIcon, LikeIcon, BookmarkCheckedIcon } from 'assets/svgs';
+import styles from './questionItem.module.scss';
 
 interface IProp {
   title: string;

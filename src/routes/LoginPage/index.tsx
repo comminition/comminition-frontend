@@ -1,7 +1,8 @@
-import classNames from 'classnames/bind';
-import styles from './loginPage.module.scss';
-import LoginButton from 'components/UI/Buttons/LoginButton';
 import comminition from 'apis/comminition';
+import classNames from 'classnames/bind';
+import LoginButton from 'components/UI/Buttons/LoginButton';
+
+import styles from './loginPage.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -1,9 +1,8 @@
-import RecruitItem from '../../../../components/UI/RecruitItem';
 import RoundButton from 'components/UI/Buttons/RoundButton';
 
-import styles from './recruitBoard.module.scss';
-
 import sampleImage from '../../../../assets/images/sampleImage.png';
+import RecruitItem from '../../../../components/UI/RecruitItem';
+import styles from './recruitBoard.module.scss';
 
 const RecruitBoard = () => {
   const content = {

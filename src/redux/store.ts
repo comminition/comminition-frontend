@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import signupReducer from './signupSlice';
+
 import loginReduer from './authSlice';
-import profileReducer from './profileSlice';
 import { listenerMiddleware } from './listenerMiddlewares';
+import profileReducer from './profileSlice';
+import signupReducer from './signupSlice';
 
 const store = configureStore({
   reducer: { signup: signupReducer, login: loginReduer, profile: profileReducer },

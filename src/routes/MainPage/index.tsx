@@ -1,8 +1,7 @@
+import ContributionBoard from './components/ContributionBoard';
 import InfoBoard from './components/InfoBoard';
 import InquiryBoard from './components/InquiryBoard';
-import ContributionBoard from './components/ContributionBoard';
 import RecruitBoard from './components/RecruitBoard';
-
 import styles from './mainPage.module.scss';
 
 const MainPage = () => {

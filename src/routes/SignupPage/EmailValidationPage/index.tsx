@@ -1,14 +1,13 @@
-import { FormEvent, useState } from 'react';
-import { motion } from 'framer-motion';
-import classNames from 'classnames/bind';
-import type { RootState } from 'redux/store';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-
-import useInput from 'hooks/useInput';
-import TextField from 'components/UI/TextField';
 import Comminition from 'apis/comminition';
+import classNames from 'classnames/bind';
+import TextField from 'components/UI/TextField';
+import { motion } from 'framer-motion';
+import useInput from 'hooks/useInput';
+import { FormEvent, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import type { RootState } from 'redux/store';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './emailValidationPage.module.scss';

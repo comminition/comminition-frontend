@@ -1,17 +1,16 @@
-import { FormEvent, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import { sendPersonalInfo } from 'redux/signupSlice';
-import { useSelector } from 'react-redux';
-import type { RootState } from 'redux/store';
-
-import useInput from 'hooks/useInput';
 import TextField from 'components/UI/TextField';
+import { motion } from 'framer-motion';
+import useInput from 'hooks/useInput';
+import { FormEvent, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'redux/hooks';
+import { sendPersonalInfo } from 'redux/signupSlice';
+import type { RootState } from 'redux/store';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
 
 import styles from './getUserInfoPage.module.scss';
-import { useAppDispatch } from 'redux/hooks';
 
 const cx = classNames.bind(styles);
 

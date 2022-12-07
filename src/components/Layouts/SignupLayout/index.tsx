@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
-
 import ProgressBar from 'routes/SignupPage/ProgressBar';
+
 import styles from './signupLayout.module.scss';
 
 const index: { [index: string]: 1 | 2 | 3 } = {

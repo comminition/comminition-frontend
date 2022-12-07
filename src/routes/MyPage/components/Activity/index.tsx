@@ -1,5 +1,6 @@
+import { BookmarkCheckedIcon, CommentCheckedIcon, LikeCheckedIcon, PostCheckedIcon } from 'assets/svgs';
+
 import styles from './activity.module.scss';
-import { LikeCheckedIcon, BookmarkCheckedIcon, CommentCheckedIcon, PostCheckedIcon } from 'assets/svgs';
 
 const Activity = () => {
   return (

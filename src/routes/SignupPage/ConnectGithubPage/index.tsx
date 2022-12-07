@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import classNames from 'classnames/bind';
-
+import { motion } from 'framer-motion';
 import pageVariants, { pageTransition } from 'styles/framerAnimation/pageTransition';
+
 import styles from './connectGithubPage.module.scss';
 
 const cx = classNames.bind(styles);
