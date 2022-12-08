@@ -35,7 +35,7 @@ const RecruitItem = ({
       <img src={image || sampleImage} alt={title} className={styles.image} />
       <h1>{title}</h1>
       <div className={styles.profile}>
-        {profileIcon} {writer}
+        {profileIcon} <span>{writer}</span>
       </div>
       <div className={styles.footer}>
         <div className={styles.icons}>

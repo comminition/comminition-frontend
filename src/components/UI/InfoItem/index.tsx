@@ -56,7 +56,7 @@ const InfoItem = ({
       </div>
       <div className={cx('content', lineOfContent)}>{content}</div>
       <div className={cx('footer')}>
-        <time>{date}</time>
+        <time>{date?.toString()}</time>
         <div className={cx('icons')}>
           <div>
             {likeIcon} {like}

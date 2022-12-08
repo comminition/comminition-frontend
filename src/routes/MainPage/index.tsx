@@ -9,10 +9,13 @@ const MainPage = () => {
   const { infoQueriesResult, inquiryQueriesResult, projectQueriesResult } = useInfo();
 
   const infoItems = infoQueriesResult.map((result) => {
+    const date = result.data?.info.createdAt ? new Date(result.data?.info.createdAt) : undefined;
+    const formattedDate = new Intl.DateTimeFormat('ko-KR').format(date);
+
     return {
       title: result.data?.info.title,
       content: result.data?.info.content,
-      date: result.data?.info.createdAt,
+      date: formattedDate,
       isLiked: true,
       like: result.data?.likes,
       comments: result.data?.comments,
@@ -23,10 +26,13 @@ const MainPage = () => {
   });
 
   const inquiryItems = inquiryQueriesResult.map((result) => {
+    const date = result.data?.qna.createdAt ? new Date(result.data?.qna.createdAt) : undefined;
+    const formattedDate = new Intl.DateTimeFormat('ko-KR').format(date);
+
     return {
       title: result.data?.qna.title,
       content: result.data?.qna.content,
-      date: result.data?.qna.createdAt,
+      date: formattedDate,
       isLiked: true,
       like: result.data?.likes,
       comments: result.data?.comments,
@@ -37,10 +43,13 @@ const MainPage = () => {
   });
 
   const projectItems = projectQueriesResult.map((result) => {
+    const date = result.data?.project.createdAt ? new Date(result.data?.project.createdAt) : undefined;
+    const formattedDate = new Intl.DateTimeFormat('ko-KR').format(date);
+
     return {
       title: result.data?.project.title,
       content: result.data?.project.content,
-      date: result.data?.project.createdAt,
+      date: formattedDate,
       isLiked: true,
       like: result.data?.likes,
       comments: result.data?.comments,
