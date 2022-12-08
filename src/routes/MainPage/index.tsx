@@ -8,8 +8,6 @@ import styles from './mainPage.module.scss';
 const MainPage = () => {
   const { infoQueriesResult, inquiryQueriesResult, projectQueriesResult } = useInfo();
 
-  console.log(projectQueriesResult);
-
   const infoItems = infoQueriesResult.map((result) => {
     return {
       title: result.data?.info.title,
@@ -38,6 +36,21 @@ const MainPage = () => {
     };
   });
 
+  const projectItems = projectQueriesResult.map((result) => {
+    return {
+      title: result.data?.project.title,
+      content: result.data?.project.content,
+      date: result.data?.project.createdAt,
+      isLiked: true,
+      like: result.data?.likes,
+      comments: result.data?.comments,
+      bookmark: result.data?.scraps,
+      isBookmarked: false,
+      writer: result.data?.project.writer,
+      hashtags: result.data?.project.hashtags,
+    };
+  });
+
   return (
     <>
       <section className={styles.contributon}>
@@ -48,7 +61,7 @@ const MainPage = () => {
         <InfoBoard title="질문 게시판" items={inquiryItems} />
       </section>
       <section className={styles.recruit}>
-        <RecruitBoard />
+        <RecruitBoard items={projectItems} />
       </section>
       <section className={styles.inquiry}>
         <InquiryBoard />

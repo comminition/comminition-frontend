@@ -1,4 +1,4 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import RecruitItem from '.';
 
@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof RecruitItem> = (args) => <RecruitItem {...
 export const Primary = Template.bind({});
 
 Primary.args = {
-  author: '김보현',
+  writer: '김보현',
   bookmark: 3,
   comments: 4,
   date: '2022-02-02',

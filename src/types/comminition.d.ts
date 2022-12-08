@@ -97,7 +97,7 @@ interface IGetProjectListResponse extends IGetProjectList {
 }
 
 interface IGetProjectContentResponse {
-  qna: {
+  project: {
     _id: string;
     title: string;
     content: string;
