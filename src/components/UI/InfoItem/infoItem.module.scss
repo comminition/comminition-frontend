@@ -27,8 +27,7 @@
 }
 
 .infoItem {
-  padding: 20px 80px;
-  margin-top: 20px;
+  padding: 24px 44px;
   background-color: color.$WHITE;
   border-radius: 8px;
 
@@ -47,11 +46,22 @@
       align-items: center;
       font-size: 16px;
       font-weight: 400;
+
+      & > span {
+        width: 6ch;
+        overflow: hidden;
+        font-weight: 300;
+        color: color.$GREY_PRIMARY;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 
   .content {
-    margin-bottom: 15px;
+    height: 48px;
+    margin-top: 12px;
+    margin-bottom: 5px;
   }
 
   .footer {

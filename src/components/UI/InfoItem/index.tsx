@@ -51,7 +51,7 @@ const InfoItem = ({
         <div className={cx('title')}>{title}</div>
         <div className={cx('profile')}>
           {profileIcon}
-          {writer}
+          <span>{writer}</span>
         </div>
       </div>
       <div className={cx('content', lineOfContent)}>{content}</div>
