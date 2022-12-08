@@ -1,4 +1,5 @@
 import RoundButton from 'components/UI/Buttons/RoundButton';
+import { Link } from 'react-router-dom';
 
 import RecruitItem from '../../../../components/UI/RecruitItem';
 import styles from './recruitBoard.module.scss';
@@ -26,7 +27,9 @@ const RecruitBoard = ({ items }: IProps) => {
     <div className={styles.recruitBoard}>
       <div className={styles.header}>
         <h1>사이드 프로젝트 홍보/구인</h1>
-        <RoundButton size="medium" backgroundColor="white" text="더보기" />
+        <Link to="recruit">
+          <RoundButton size="medium" backgroundColor="white" text="더보기" />
+        </Link>
       </div>
       <div className={styles.content}>{items && items.map((project) => <RecruitItem {...project} />)}</div>
     </div>
