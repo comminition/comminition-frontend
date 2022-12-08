@@ -5,6 +5,8 @@ import {
   IGetInfoPostListResponse,
   IGetInquiryPostContentResponse,
   IGetInquiryPostListResponse,
+  IGetProjectContentResponse,
+  IGetProjectList,
   IGetUserProfileResponse,
   IloginResponse,
 } from 'types/comminition';
@@ -102,6 +104,7 @@ export default {
       method: 'get',
     });
   },
+
   getInquiryPostList(
     skip: number,
     limit: number,
@@ -121,6 +124,41 @@ export default {
   getInquiryPostContent(id: string): AxiosPromise<IGetInquiryPostContentResponse> {
     return Axios({
       url: `/v1/qna/${id}`,
+      method: 'get',
+    });
+  },
+
+  /**
+   *  전체 project글을 조회합니다.
+   * @param skip 스킵할 게시물 갯수
+   * @param limit 표현할 게시물 갯수
+   * @param sort 정렬할 기준 - 기본값 date
+   * @returns
+   */
+  getProjectList(
+    skip: number,
+    limit: number,
+    sorted: 'like' | 'date' | 'scrap' = 'date',
+  ): AxiosPromise<IGetProjectList> {
+    return Axios({
+      url: '/v1/project',
+      method: 'get',
+      params: {
+        skip,
+        limit,
+        sorted,
+      },
+    });
+  },
+
+  /**
+   * 특정 project 글을 조회합니다.
+   * @param id project 글 id
+   * @returns
+   */
+  getProjectContent(id: string): AxiosPromise<IGetProjectContentResponse> {
+    return Axios({
+      url: `/v1/project/${id}`,
       method: 'get',
     });
   },

@@ -3,4 +3,6 @@ export const queryKeys = {
   InfoPostContent: 'InfoPostContent',
   InquiryPostList: 'InquiryPostList',
   InquiryPostContent: 'InquiryPostContent',
+  ProjectPostList: 'ProjectPostList',
+  ProjectPostContent: 'ProjectPostContent',
 };

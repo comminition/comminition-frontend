@@ -86,3 +86,28 @@ interface IGetInquiryPostContentResponse {
   scraps: number;
   likes: number;
 }
+
+interface IGetProjectList {
+  all: string[];
+}
+
+interface IGetProjectListResponse extends IGetProjectList {
+  nextFrom: number;
+  count: number;
+}
+
+interface IGetProjectContentResponse {
+  qna: {
+    _id: string;
+    title: string;
+    content: string;
+    writer: string;
+    hashtags: string[];
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  comments: number;
+  scraps: number;
+  likes: number;
+}

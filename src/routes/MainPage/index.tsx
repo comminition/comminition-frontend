@@ -6,7 +6,9 @@ import useInfo from './hooks/useInfo';
 import styles from './mainPage.module.scss';
 
 const MainPage = () => {
-  const { infoQueriesResult, inquiryQueriesResult } = useInfo();
+  const { infoQueriesResult, inquiryQueriesResult, projectQueriesResult } = useInfo();
+
+  console.log(projectQueriesResult);
 
   const infoItems = infoQueriesResult.map((result) => {
     return {
