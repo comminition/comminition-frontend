@@ -1,7 +1,9 @@
 import Layout from 'components/Layouts/Layout';
 import RequireAuth from 'components/Router/RequireAuth';
+import LoadingSpinner from 'components/UI/LoadingSpinner';
+import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, ScrollRestoration } from 'react-router-dom';
 import InfoPage from 'routes/InfoPage';
 import LoginPage from 'routes/LoginPage';
 import RedirectPage from 'routes/LoginPage/RedirectPage';
@@ -12,7 +14,7 @@ import RecruitPage from 'routes/RecruitPage';
 
 const App = () => {
   return (
-    <>
+    <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={<RequireAuth />}>
@@ -26,8 +28,9 @@ const App = () => {
           <Route path="login/github" element={<RedirectPage />} />
         </Route>
       </Routes>
+      <ScrollRestoration />
       <Toaster />
-    </>
+    </Suspense>
   );
 };
 
