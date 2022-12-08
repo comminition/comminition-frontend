@@ -35,11 +35,11 @@ const useInfo = () => {
   });
 
   const fallbackInquiryIds: string[] = [];
-  const { data: inquiryData = fallbackInquiryIds } = useQuery([queryKeys.InfoInquiryList], getInquiryPostList);
+  const { data: inquiryData = fallbackInquiryIds } = useQuery([queryKeys.InquiryPostList], getInquiryPostList);
   const inquiryQueriesResult = useQueries({
     queries: inquiryData.map((postId) => {
       return {
-        queryKey: [queryKeys.InfoInquiryContent, postId],
+        queryKey: [queryKeys.InquiryPostContent, postId],
         queryFn: () => getInquiryPostContent(postId),
       };
     }),
