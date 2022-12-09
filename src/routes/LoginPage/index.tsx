@@ -1,4 +1,3 @@
-import comminition from 'apis/comminition';
 import classNames from 'classnames/bind';
 import LoginButton from 'components/UI/Buttons/LoginButton';
 

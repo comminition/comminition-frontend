@@ -12,7 +12,9 @@ const content = {
   comments: 7,
   bookmark: 3,
   isBookmarked: false,
-  author: '김떙땡',
+  writer: '김떙땡',
+  hashtags: [],
+  content: '',
 };
 
 const Main = () => {

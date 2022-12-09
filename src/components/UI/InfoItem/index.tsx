@@ -1,19 +1,22 @@
-import { BookmarkCheckedIcon,BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
+import { BookmarkCheckedIcon, BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
 import classNames from 'classnames/bind';
 
 import styles from './infoItem.module.scss';
 
-interface IProp {
-  title: string;
-  content: string;
-  date: string;
-  isLiked: boolean;
-  like: number;
-  comments: number;
-  bookmark: number;
-  isBookmarked: boolean;
-  writer: string;
-  profileImage?: string;
+export interface IContent {
+  title: string | undefined;
+  content: string | undefined;
+  date: string | undefined;
+  isLiked: boolean | undefined;
+  like: number | undefined;
+  comments: number | undefined;
+  bookmark: number | undefined;
+  isBookmarked: boolean | undefined;
+  writer: string | undefined;
+  profileImage?: string | undefined;
+}
+
+interface IProp extends IContent {
   width: 'medium' | 'wide';
   lineOfContent: 'oneLine' | 'twoLine';
 }
@@ -48,12 +51,12 @@ const InfoItem = ({
         <div className={cx('title')}>{title}</div>
         <div className={cx('profile')}>
           {profileIcon}
-          {writer}
+          <span>{writer}</span>
         </div>
       </div>
       <div className={cx('content', lineOfContent)}>{content}</div>
       <div className={cx('footer')}>
-        <time>{date}</time>
+        <time>{date?.toString()}</time>
         <div className={cx('icons')}>
           <div>
             {likeIcon} {like}

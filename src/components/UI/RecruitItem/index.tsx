@@ -1,24 +1,17 @@
 import { BookmarkCheckedIcon, BookmarkIcon, CommentIcon, LikeCheckedIcon, LikeIcon, ProfileIcon } from 'assets/svgs';
+import { IProject } from 'routes/MainPage/components/RecruitBoard';
 
+import sampleImage from '../../../assets/images/sampleImage.png';
 import styles from './recruitItem.module.scss';
 
-interface IProp {
-  title: string;
-  image: string;
-  author: string;
-  profileImage?: string;
-  date: string;
-  isLiked: boolean;
-  like: number;
-  comments: number;
-  bookmark: number;
-  isBookmarked: boolean;
+interface IProps extends IProject {
+  image?: string;
 }
 
 const RecruitItem = ({
   title,
   image,
-  author,
+  writer,
   profileImage,
   date,
   isLiked,
@@ -26,7 +19,7 @@ const RecruitItem = ({
   comments,
   bookmark,
   isBookmarked,
-}: IProp) => {
+}: IProps) => {
   const profileIcon = (profileImage && <img src={profileImage} alt="profile" className={styles.profileImage} />) || (
     <ProfileIcon className={styles.icon} />
   );
@@ -39,10 +32,10 @@ const RecruitItem = ({
 
   return (
     <div className={styles.recruitItem}>
-      <img src={image} alt={title} className={styles.image} />
+      <img src={image || sampleImage} alt={title} className={styles.image} />
       <h1>{title}</h1>
       <div className={styles.profile}>
-        {profileIcon} {author}
+        {profileIcon} <span>{writer}</span>
       </div>
       <div className={styles.footer}>
         <div className={styles.icons}>
