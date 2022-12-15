@@ -2,60 +2,69 @@
 
 .profile {
   display: flex;
+  justify-content: space-between;
   width: 1030px;
   height: 185px;
 
-  .profileImage {
+  .contents {
     display: flex;
-    margin-top: 18px;
-  }
 
-  .category {
-    display: table;
-    width: 242px;
-    height: 185px;
-    margin-left: 22px;
-
-    .items + .items {
-      margin-top: 20px;
-    }
-
-    .items {
+    .profileImage {
       display: flex;
+      margin-top: 18px;
+    }
 
-      .nickname {
-        font-weight: 700;
+    .category {
+      display: table;
+      width: 242px;
+      height: 185px;
+      margin-left: 22px;
+
+      .items + .items {
+        margin-top: 20px;
       }
 
-      .part {
-        color: color.$BLUE_PRIMARY;
-      }
+      .items {
+        display: flex;
 
-      :first-child {
-        width: 47px;
-        margin-left: auto;
-        font-size: 18px;
-        font-weight: 400;
-        color: color.$GREY_PRIMARY;
-      }
+        .nickname {
+          font-weight: 700;
+        }
 
-      :last-child {
-        width: 166px;
-        font-size: 18px;
-      }
+        .part {
+          color: color.$BLUE_PRIMARY;
+        }
 
-      :first-child + :last-child {
-        margin-left: 30px;
+        :first-child {
+          width: 47px;
+          margin-left: auto;
+          font-size: 18px;
+          font-weight: 400;
+          color: color.$GREY_PRIMARY;
+        }
+
+        :last-child {
+          width: 166px;
+          font-size: 18px;
+        }
+
+        :first-child + :last-child {
+          margin-left: 30px;
+        }
       }
     }
   }
 
-  .editDiv {
-    button {
+  .edit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    & > button {
       display: flex;
       width: 100px;
       height: 20px;
-      margin-left: 490px;
       font-size: 16px;
       font-weight: 400;
       color: color.$GREY_PRIMARY;
@@ -63,24 +72,7 @@
 
     .type {
       display: flex;
-      width: 475px;
-      height: 36px;
-      margin-top: 130px;
-      margin-left: 126px;
-
-      div {
-        display: flex;
-        padding: 8px 30px;
-        font-size: 17px;
-        font-weight: 400;
-        color: color.$NAVY;
-        border: 1px solid color.$NAVY;
-        border-radius: 30px;
-      }
-
-      div + div {
-        margin-left: 12px;
-      }
+      gap: 12px;
     }
   }
 }
