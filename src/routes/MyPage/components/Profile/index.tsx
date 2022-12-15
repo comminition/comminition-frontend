@@ -1,4 +1,5 @@
 import { ProfileImage } from 'assets/svgs';
+import RoundButton from 'components/UI/Buttons/RoundButton';
 
 import styles from './profile.module.scss';
 
@@ -33,10 +34,18 @@ const Profile = () => {
       <div className={styles.editDiv}>
         <button type="button">프로필 수정하기</button>
         <div className={styles.type}>
-          <div className={styles.div}>Frontend</div>
-          <div className={styles.div}>Java</div>
-          <div className={styles.div}>Html</div>
-          <div className={styles.div}>React.js</div>
+          <RoundButton size="auto" backgroundColor="transparent" height="36px" color="#172366">
+            Frontend
+          </RoundButton>
+          <RoundButton size="auto" backgroundColor="transparent" height="36px" color="#172366">
+            Java
+          </RoundButton>
+          <RoundButton size="auto" backgroundColor="transparent" height="36px" color="#172366">
+            Html
+          </RoundButton>
+          <RoundButton size="auto" backgroundColor="transparent" height="36px" color="#172366">
+            React.js
+          </RoundButton>
         </div>
       </div>
     </div>

@@ -5,17 +5,23 @@ import styles from './roundButton.module.scss';
 interface IProp {
   size: 'medium' | 'large' | 'auto';
   backgroundColor: 'white' | 'transparent';
-  text: string;
+  children: string;
   marginBottom?: 'marginBottom5' | 'marginBottom10';
   marginHorizontal?: 'marginHorizontal5' | 'marginHorizontal10';
+  height?: string;
+  color?: string;
 }
 
 const cx = classNames.bind(styles);
 
-const RoundButton = ({ size, backgroundColor, text, marginBottom, marginHorizontal }: IProp) => {
+const RoundButton = ({ size, backgroundColor, children, marginBottom, marginHorizontal, height, color }: IProp) => {
   return (
-    <button type="button" className={cx('button', size, backgroundColor, marginBottom, marginHorizontal)}>
-      {text}
+    <button
+      type="button"
+      className={cx('button', size, backgroundColor, marginBottom, marginHorizontal)}
+      style={{ height, borderColor: color, color }}
+    >
+      {children}
     </button>
   );
 };

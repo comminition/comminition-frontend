@@ -17,11 +17,17 @@ const Profile = () => {
       <address className={styles.address}>{profile.local || '서울시 강남구'}</address>
       <div className={styles.skills}>
         {profile.skills?.map((skill) => (
-          <RoundButton size="auto" backgroundColor="transparent" text={skill} />
+          <RoundButton size="auto" backgroundColor="transparent">
+            {skill}
+          </RoundButton>
         ))}
         {/* 밑의 코드는 추후 제거 */}
-        <RoundButton size="auto" backgroundColor="transparent" text="Frontend" />
-        <RoundButton size="auto" backgroundColor="transparent" text="Java" />
+        <RoundButton size="auto" backgroundColor="transparent" height="36px">
+          Frontend
+        </RoundButton>
+        <RoundButton size="auto" backgroundColor="transparent" height="36px">
+          Java
+        </RoundButton>
       </div>
     </div>
   );
