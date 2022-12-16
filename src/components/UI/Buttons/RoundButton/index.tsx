@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { MouseEvent } from 'react';
 
 import styles from './roundButton.module.scss';
 
@@ -10,16 +11,27 @@ interface IProp {
   marginHorizontal?: 'marginHorizontal5' | 'marginHorizontal10';
   height?: string;
   color?: string;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const cx = classNames.bind(styles);
 
-const RoundButton = ({ size, backgroundColor, children, marginBottom, marginHorizontal, height, color }: IProp) => {
+const RoundButton = ({
+  size,
+  backgroundColor,
+  children,
+  marginBottom,
+  marginHorizontal,
+  height,
+  color,
+  onClick,
+}: IProp) => {
   return (
     <button
       type="button"
       className={cx('button', size, backgroundColor, marginBottom, marginHorizontal)}
       style={{ height, borderColor: color, color }}
+      onClick={onClick}
     >
       {children}
     </button>

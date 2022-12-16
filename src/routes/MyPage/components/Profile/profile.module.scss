@@ -27,11 +27,17 @@
       .items {
         display: flex;
 
+        & input {
+          height: 18px;
+        }
+
         .nickname {
           font-weight: 700;
         }
 
         .part {
+          height: 18px;
+          font-size: 18px;
           color: color.$BLUE_PRIMARY;
         }
 
@@ -73,6 +79,23 @@
     .type {
       display: flex;
       gap: 12px;
+    }
+
+    .addSkill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 168px;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: 400;
+      color: color.$BLACK;
+      border: 1px solid color.$GREY_PRIMARY;
+      border-radius: 30px;
+
+      &::placeholder {
+        text-align: center;
+      }
     }
   }
 }
