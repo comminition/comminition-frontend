@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import Activity from './components/Activity';
 import Contribution from './components/Contribution';
 import Explanation from './components/Explanation';
@@ -8,12 +6,10 @@ import Profile from './components/Profile';
 import styles from './myPage.module.scss';
 
 const MyPage = () => {
-  const [isEditMode, setIsEditMode] = useState(true);
-
   return (
     <div className={styles.myPage}>
       <div className={styles.profile}>
-        <Profile isEditMode={isEditMode} handleEditMode={setIsEditMode} />
+        <Profile />
       </div>
       <div className={styles.underProfile}>
         <Explanation />
