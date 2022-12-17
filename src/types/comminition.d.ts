@@ -1,5 +1,17 @@
 import { AxiosError } from 'axios';
 
+interface Profile {
+  nickname: string | null;
+  field: string | null;
+  major: string | null;
+  local: string | null;
+  skills: string[];
+  email: string | null;
+  introduce: string | null;
+  interested: string[];
+  github: string | null;
+}
+
 interface ICreateUser extends IComminitionResponse {
   id: string;
   nickname: string;

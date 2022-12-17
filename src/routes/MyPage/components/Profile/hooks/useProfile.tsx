@@ -1,5 +1,9 @@
-import { ChangeEvent, KeyboardEvent, MouseEvent, useReducer, useState } from 'react';
-import { useAppSelector } from 'redux/hooks';
+import { useMutation } from '@tanstack/react-query';
+import comminition from 'apis/comminition';
+import { ChangeEvent, KeyboardEvent, MouseEvent, useEffect, useReducer, useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { setProfile } from 'redux/profileSlice';
+import type { Profile } from 'types/comminition';
 
 interface State {
   part: string;
@@ -16,6 +20,10 @@ interface Action {
     value: string;
   };
 }
+
+const patchProfile = async (userId: string, profileData: Profile) => {
+  await comminition.modifyUserProfile(userId, profileData);
+};
 
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
@@ -36,16 +44,38 @@ const reducer = (state: State, action: Action) => {
 
 const useProfile = () => {
   const profile = useAppSelector((state) => state.profile);
+  const userId = useAppSelector((state) => state.login.userId);
+  const reduxDispatch = useAppDispatch();
   const [editMode, setEditMode] = useState(false);
+  const { mutate } = useMutation<unknown, Error, Profile, unknown>(
+    (profileData) => patchProfile(userId!, profileData),
+    {
+      onSuccess: (data, variable) => {
+        reduxDispatch(setProfile(variable));
+      },
+      onError: (error) => {
+        console.log(error);
+      },
+    },
+  );
+
   const INITIAL_VALUE = {
-    part: profile.field || '',
-    major: profile.major || '',
-    address: profile.local || '',
-    email: profile.email || '',
-    skills: profile.skills,
+    part: '',
+    major: '',
+    address: '',
+    email: '',
+    skills: [],
   };
+
   const [state, dispatch] = useReducer(reducer, INITIAL_VALUE);
   const [skill, setSkill] = useState('');
+
+  useEffect(() => {
+    dispatch({ type: 'INPUT', payload: { inputType: 'part', value: profile.field! } });
+    dispatch({ type: 'INPUT', payload: { inputType: 'major', value: profile.major! } });
+    dispatch({ type: 'INPUT', payload: { inputType: 'address', value: profile.local! } });
+    dispatch({ type: 'INPUT', payload: { inputType: 'email', value: profile.email! } });
+  }, [profile]);
 
   const handlePartInput = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'INPUT', payload: { inputType: 'part', value: e.currentTarget.value } });
@@ -77,6 +107,19 @@ const useProfile = () => {
   };
 
   const handleSubmit = () => {
+    if (editMode) {
+      mutate({
+        nickname: profile.nickname,
+        field: state.part,
+        major: state.major,
+        local: state.address,
+        skills: state.skills,
+        email: state.email,
+        introduce: profile.introduce,
+        github: profile.github,
+        interested: profile.interested,
+      });
+    }
     setEditMode((prev) => !prev);
   };
 

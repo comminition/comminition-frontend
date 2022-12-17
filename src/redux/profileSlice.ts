@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import comminition from 'apis/comminition';
 
 export interface Profile {
@@ -36,7 +36,14 @@ export const loadUserProfile = createAsyncThunk('profileSlice/loadUserProfile', 
 export const profileSlice = createSlice({
   name: 'profileSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    setProfile: (state, action: { payload: Profile }) => {
+      state.field = action.payload.field;
+      state.major = action.payload.major;
+      state.local = action.payload.local;
+      state.skills = action.payload.skills;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(loadUserProfile.fulfilled, (state, action) => {
       state.email = action.payload.email;
@@ -52,6 +59,6 @@ export const profileSlice = createSlice({
   },
 });
 
-export const {} = profileSlice.actions;
+export const { setProfile } = profileSlice.actions;
 
 export default profileSlice.reducer;
