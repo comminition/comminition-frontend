@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import comminition from 'apis/comminition';
+import useToast from 'hooks/useToast';
 import { ChangeEvent, KeyboardEvent, MouseEvent, useEffect, useReducer, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { setProfile } from 'redux/profileSlice';
@@ -43,6 +44,7 @@ const reducer = (state: State, action: Action) => {
 };
 
 const useProfile = () => {
+  const toast = useToast();
   const profile = useAppSelector((state) => state.profile);
   const userId = useAppSelector((state) => state.login.userId);
   const reduxDispatch = useAppDispatch();
@@ -51,10 +53,11 @@ const useProfile = () => {
     (profileData) => patchProfile(userId!, profileData),
     {
       onSuccess: (data, variable) => {
+        toast({ status: 'success', message: '프로필 수정에 성공했습니다.' });
         reduxDispatch(setProfile(variable));
       },
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
+        toast({ status: 'error', message: '프로필 수정에 실패했습니다.' });
       },
     },
   );
