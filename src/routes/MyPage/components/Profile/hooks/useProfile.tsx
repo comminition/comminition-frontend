@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import comminition from 'apis/comminition';
 import useToast from 'hooks/useToast';
-import { ChangeEvent, KeyboardEvent, MouseEvent, useEffect, useReducer, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, MouseEvent, useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { setProfile } from 'redux/profileSlice';
 import type { Profile } from 'types/comminition';
@@ -49,6 +49,8 @@ const useProfile = () => {
   const userId = useAppSelector((state) => state.login.userId);
   const reduxDispatch = useAppDispatch();
   const [editMode, setEditMode] = useState(false);
+  const [userSkillInput, setUserSkillInput] = useState('');
+  const [isComposing, setIsComposing] = useState(false);
   const { mutate } = useMutation<unknown, Error, Profile, unknown>(
     (profileData) => patchProfile(userId!, profileData),
     {
@@ -62,16 +64,18 @@ const useProfile = () => {
     },
   );
 
-  const INITIAL_VALUE = {
-    part: '',
-    major: '',
-    address: '',
-    email: '',
-    skills: [],
-  };
+  const INITIAL_VALUE = useMemo(
+    () => ({
+      part: '',
+      major: '',
+      address: '',
+      email: '',
+      skills: [],
+    }),
+    [],
+  );
 
   const [state, dispatch] = useReducer(reducer, INITIAL_VALUE);
-  const [skill, setSkill] = useState('');
 
   useEffect(() => {
     dispatch({ type: 'INPUT', payload: { inputType: 'part', value: profile.field! } });
@@ -80,34 +84,38 @@ const useProfile = () => {
     dispatch({ type: 'INPUT', payload: { inputType: 'email', value: profile.email! } });
   }, [profile]);
 
-  const handlePartInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const handlePartInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'INPUT', payload: { inputType: 'part', value: e.currentTarget.value } });
-  };
-  const handleMajorInput = (e: ChangeEvent<HTMLInputElement>) => {
+  }, []);
+  const handleMajorInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'INPUT', payload: { inputType: 'major', value: e.currentTarget.value } });
-  };
-  const handleAddressInput = (e: ChangeEvent<HTMLInputElement>) => {
+  }, []);
+  const handleAddressInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'INPUT', payload: { inputType: 'address', value: e.currentTarget.value } });
-  };
-  const handleEmailInput = (e: ChangeEvent<HTMLInputElement>) => {
+  }, []);
+  const handleEmailInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'INPUT', payload: { inputType: 'email', value: e.currentTarget.value } });
-  };
+  }, []);
 
-  const handleSkillInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setSkill(e.currentTarget.value);
-  };
+  const handleSkillInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setUserSkillInput(e.currentTarget.value);
+  }, []);
 
-  const handleSkillEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      dispatch({ type: 'INPUT', payload: { inputType: 'skills', value: skill } });
-      setSkill('');
-    }
-  };
+  const handleSkillEnter = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>) => {
+      if (isComposing) return;
+      if (e.key === 'Enter') {
+        dispatch({ type: 'INPUT', payload: { inputType: 'skills', value: userSkillInput } });
+        setUserSkillInput('');
+      }
+    },
+    [isComposing, userSkillInput],
+  );
 
-  const handleRemoveSkill = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleRemoveSkill = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     const eventTarget = e.target as HTMLButtonElement;
     dispatch({ type: 'REMOVE', payload: { inputType: 'skills', value: eventTarget.innerText } });
-  };
+  }, []);
 
   const handleSubmit = () => {
     if (editMode) {
@@ -135,8 +143,9 @@ const useProfile = () => {
     handleSkillEnter,
     handleRemoveSkill,
     handleSubmit,
+    setIsComposing,
     state,
-    skill,
+    userSkillInput,
     nickname: profile.nickname,
     editMode,
   };
