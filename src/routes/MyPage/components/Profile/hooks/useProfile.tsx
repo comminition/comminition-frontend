@@ -33,6 +33,7 @@ const reducer = (state: State, action: Action) => {
       if (action.payload.inputType === 'major') return { ...state, major: action.payload.value };
       if (action.payload.inputType === 'address') return { ...state, address: action.payload.value };
       if (action.payload.inputType === 'email') return { ...state, email: action.payload.value };
+      // TODO: 스킬 아이템 중복 처리 필요
       if (action.payload.inputType === 'skills') return { ...state, skills: [...state.skills, action.payload.value] };
       break;
     case 'REMOVE':
@@ -50,7 +51,6 @@ const useProfile = () => {
   const reduxDispatch = useAppDispatch();
   const [editMode, setEditMode] = useState(false);
   const [userSkillInput, setUserSkillInput] = useState('');
-  const [isComposing, setIsComposing] = useState(false);
   const { mutate } = useMutation<unknown, Error, Profile, unknown>(
     (profileData) => patchProfile(userId!, profileData),
     {
@@ -103,13 +103,13 @@ const useProfile = () => {
 
   const handleSkillEnter = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
-      if (isComposing) return;
+      if (e.nativeEvent.isComposing) return;
       if (e.key === 'Enter') {
         dispatch({ type: 'INPUT', payload: { inputType: 'skills', value: userSkillInput } });
         setUserSkillInput('');
       }
     },
-    [isComposing, userSkillInput],
+    [userSkillInput],
   );
 
   const handleRemoveSkill = useCallback((e: MouseEvent<HTMLButtonElement>) => {
@@ -143,7 +143,6 @@ const useProfile = () => {
     handleSkillEnter,
     handleRemoveSkill,
     handleSubmit,
-    setIsComposing,
     state,
     userSkillInput,
     nickname: profile.nickname,

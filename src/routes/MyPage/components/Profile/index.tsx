@@ -14,7 +14,6 @@ const Profile = () => {
     handleSkillInput,
     handleRemoveSkill,
     handleSubmit,
-    setIsComposing,
     state,
     userSkillInput,
     nickname,
@@ -99,8 +98,6 @@ const Profile = () => {
               placeholder="+ 직접 추가하기"
               onChange={handleSkillInput}
               onKeyDown={handleSkillEnter}
-              onCompositionStart={() => setIsComposing(true)}
-              onCompositionEnd={() => setIsComposing(false)}
               value={userSkillInput}
             />
           )}
