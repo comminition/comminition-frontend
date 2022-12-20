@@ -15,10 +15,11 @@ interface State {
 }
 
 interface Action {
-  type: 'INPUT' | 'REMOVE';
+  type: 'INPUT' | 'REMOVE' | 'INIT';
   payload: {
     inputType: 'part' | 'major' | 'address' | 'email' | 'skills';
     value: string;
+    skills?: string[];
   };
 }
 
@@ -40,11 +41,15 @@ const reducer = (state: State, action: Action) => {
       if (action.payload.inputType === 'skills')
         return { ...state, skills: state.skills.filter((skill) => skill !== action.payload.value) };
       break;
+    case 'INIT':
+      if (action.payload.inputType === 'skills') return { ...state, skills: [...action.payload.skills!] };
+      break;
   }
   return { ...state };
 };
 
 const useProfile = () => {
+  // TODO: 코드 분리필요.
   const toast = useToast();
   const profile = useAppSelector((state) => state.profile);
   const userId = useAppSelector((state) => state.login.userId);
@@ -64,7 +69,7 @@ const useProfile = () => {
     },
   );
 
-  const INITIAL_VALUE = useMemo(
+  const INITIAL_VALUE: State = useMemo(
     () => ({
       part: '',
       major: '',
@@ -82,6 +87,7 @@ const useProfile = () => {
     dispatch({ type: 'INPUT', payload: { inputType: 'major', value: profile.major! } });
     dispatch({ type: 'INPUT', payload: { inputType: 'address', value: profile.local! } });
     dispatch({ type: 'INPUT', payload: { inputType: 'email', value: profile.email! } });
+    dispatch({ type: 'INIT', payload: { inputType: 'skills', skills: profile.skills, value: '' } });
   }, [profile]);
 
   const handlePartInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {

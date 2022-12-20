@@ -12,7 +12,8 @@ const ProfileBoard = () => {
       <h1>내 정보</h1>
       <div className={styles.content}>
         <Profile />
-        {profile.nickname && <GitHubCalendar username={profile.nickname} />}
+        {/* FIXME: 추후 email => username으로 변경 필요 */}
+        {profile.email && <GitHubCalendar username={profile.email} />}
       </div>
     </div>
   );
