@@ -1,24 +1,12 @@
 import { ProfileImage } from 'assets/svgs';
 import RoundButton from 'components/UI/Buttons/RoundButton';
 
+import Input from './components/Input';
 import useProfile from './hooks/useProfile';
 import styles from './profile.module.scss';
 
 const Profile = () => {
-  const {
-    handleAddressInput,
-    handleEmailInput,
-    handleMajorInput,
-    handlePartInput,
-    handleSkillEnter,
-    handleSkillInput,
-    handleRemoveSkill,
-    handleSubmit,
-    state,
-    userSkillInput,
-    nickname,
-    editMode,
-  } = useProfile();
+  const { setUserInput, handleSubmit, userSkillInput, nickname, editMode, profile } = useProfile();
 
   return (
     <div className={styles.profile}>
@@ -34,39 +22,53 @@ const Profile = () => {
           <div className={styles.items}>
             <dt>분야 </dt>
             {editMode ? (
-              <input
-                type="text"
-                placeholder="입력해주세요"
-                className={styles.part}
-                value={state.part}
-                onChange={handlePartInput}
+              <Input
+                type="part"
+                placeholder="이메일을 입력해주세요"
+                onChange={setUserInput}
+                initialValue={profile.field || ''}
               />
             ) : (
-              <dd className={styles.part}>{state.part}</dd>
+              <dd className={styles.part}>{profile.field}</dd>
             )}
           </div>
           <div className={styles.items}>
             <dt>전공 </dt>
             {editMode ? (
-              <input type="text" placeholder="입력해주세요" value={state.major} onChange={handleMajorInput} />
+              <Input
+                type="major"
+                placeholder="이메일을 입력해주세요"
+                onChange={setUserInput}
+                initialValue={profile.major || ''}
+              />
             ) : (
-              <dd>{state.major}</dd>
+              <dd>{profile.major}</dd>
             )}
           </div>
           <div className={styles.items}>
             <dt>지역</dt>
             {editMode ? (
-              <input type="text" placeholder="입력해주세요" value={state.address} onChange={handleAddressInput} />
+              <Input
+                type="address"
+                placeholder="이메일을 입력해주세요"
+                onChange={setUserInput}
+                initialValue={profile.local || ''}
+              />
             ) : (
-              <dd>{state.address}</dd>
+              <dd>{profile.local}</dd>
             )}
           </div>
           <div className={styles.items}>
             <dt>이메일</dt>
             {editMode ? (
-              <input type="text" placeholder="입력해주세요" value={state.email} onChange={handleEmailInput} />
+              <Input
+                type="email"
+                placeholder="이메일을 입력해주세요"
+                onChange={setUserInput}
+                initialValue={profile.email || ''}
+              />
             ) : (
-              <dd>{state.email}</dd>
+              <dd>{profile.email}</dd>
             )}
           </div>
         </dl>
@@ -76,7 +78,7 @@ const Profile = () => {
           {editMode ? '수정 완료' : '프로필 수정하기'}
         </button>
         <div className={styles.type}>
-          {state.skills.map((skill, i) => {
+          {/* {state.skills.map((skill, i) => {
             const key = `${skill}-${i}`;
             return (
               <RoundButton
@@ -90,17 +92,17 @@ const Profile = () => {
                 {skill}
               </RoundButton>
             );
-          })}
-          {editMode && (
+          })} */}
+          {/* {editMode && (
             <input
               type="text"
               className={styles.addSkill}
               placeholder="+ 직접 추가하기"
-              onChange={handleSkillInput}
-              onKeyDown={handleSkillEnter}
+              // onChange={handleSkillInput}
+              // onKeyDown={handleSkillEnter}
               value={userSkillInput}
             />
-          )}
+          )} */}
         </div>
       </div>
     </div>
