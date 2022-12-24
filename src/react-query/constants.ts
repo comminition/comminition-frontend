@@ -5,4 +5,5 @@ export const queryKeys = {
   InquiryPostContent: 'InquiryPostContent',
   ProjectPostList: 'ProjectPostList',
   ProjectPostContent: 'ProjectPostContent',
+  Profile: 'Profile',
 };

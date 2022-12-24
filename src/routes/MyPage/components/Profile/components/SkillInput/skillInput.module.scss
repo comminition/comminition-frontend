@@ -1,0 +1,28 @@
+@use '../../../../../../styles/constants/colors' as color;
+
+.skills {
+  display: flex;
+  gap: 12px;
+
+  .addSkill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 168px;
+    height: 36px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: color.$BLACK;
+    border: 1px solid color.$GREY_PRIMARY;
+    border-radius: 30px;
+
+    &::placeholder {
+      text-align: center;
+    }
+
+    &:disabled {
+      background-color: color.$GREY_SECONDARY;
+    }
+  }
+}

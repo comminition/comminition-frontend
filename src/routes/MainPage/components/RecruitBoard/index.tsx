@@ -28,7 +28,9 @@ const RecruitBoard = ({ items }: IProps) => {
       <div className={styles.header}>
         <h1>사이드 프로젝트 홍보/구인</h1>
         <Link to="recruit">
-          <RoundButton size="medium" backgroundColor="white" text="더보기" />
+          <RoundButton size="medium" backgroundColor="white">
+            더보기
+          </RoundButton>
         </Link>
       </div>
       <div className={styles.content}>{items && items.map((project) => <RecruitItem {...project} />)}</div>

@@ -20,7 +20,9 @@ const InfoList = ({ title = '정보 게시판', items }: IProp) => {
       <div className={styles.header}>
         <h1>{title}</h1>
         <Link to={route || 'info'}>
-          <RoundButton size="medium" backgroundColor="white" text="더보기" />
+          <RoundButton size="medium" backgroundColor="white">
+            더보기
+          </RoundButton>
         </Link>
       </div>
       <div className={styles.content}>

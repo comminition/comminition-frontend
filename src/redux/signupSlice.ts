@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Comminition from 'apis/comminition';
-import { toast } from 'react-hot-toast';
 
 interface InitialSignup {
   email: string | undefined;
@@ -14,14 +13,7 @@ const initialState: InitialSignup = { email: undefined, nickname: undefined, id:
 export const sendPersonalInfo = createAsyncThunk(
   'signupSlice/sendPersonalInfo',
   async (personalData: { username: string; email: string; password: string }) => {
-    let response;
-    try {
-      response = await Comminition.createUser(personalData.username, personalData.email, personalData.password);
-    } catch (error) {
-      if (error instanceof Error) {
-        toast(error.message);
-      }
-    }
+    const response = await Comminition.createUser(personalData.username, personalData.email, personalData.password);
     return response;
   },
 );

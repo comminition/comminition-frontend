@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios';
-import {
+import type {
   ICreateUser,
   IGetInfoPostContentResponse,
   IGetInfoPostListResponse,
@@ -9,6 +9,7 @@ import {
   IGetProjectList,
   IGetUserProfileResponse,
   IloginResponse,
+  Profile,
 } from 'types/comminition';
 
 import Axios from '../utils/axios';
@@ -160,6 +161,28 @@ export default {
     return Axios({
       url: `/v1/project/${id}`,
       method: 'get',
+    });
+  },
+
+  /**
+   *
+   * @param userId 유저아이디
+   * @param profileData 프로필 데이터
+   * @returns
+   */
+  modifyUserProfile(userId: string, profileData: Profile): AxiosPromise {
+    return Axios({
+      url: `/v1/user/${userId}`,
+      method: 'put',
+      data: {
+        nickname: profileData.nickname,
+        field: profileData.field,
+        major: profileData.major,
+        local: profileData.local,
+        skills: profileData.skills,
+        introduce: profileData.introduce,
+        interested: profileData.interested,
+      },
     });
   },
 };

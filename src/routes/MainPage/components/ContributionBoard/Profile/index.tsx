@@ -16,12 +16,13 @@ const Profile = () => {
       <p className={styles.major}>{profile.major || '컴퓨터공학 전공'}</p>
       <address className={styles.address}>{profile.local || '서울시 강남구'}</address>
       <div className={styles.skills}>
-        {profile.skills?.map((skill) => (
-          <RoundButton size="auto" backgroundColor="transparent" text={skill} />
-        ))}
-        {/* 밑의 코드는 추후 제거 */}
-        <RoundButton size="auto" backgroundColor="transparent" text="Frontend" />
-        <RoundButton size="auto" backgroundColor="transparent" text="Java" />
+        {profile.skills
+          ?.map((skill) => (
+            <RoundButton size="auto" backgroundColor="transparent">
+              {skill}
+            </RoundButton>
+          ))
+          .slice(0, 2)}
       </div>
     </div>
   );

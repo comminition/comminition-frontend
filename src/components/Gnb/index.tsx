@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { logout } from 'redux/authSlice';
 import { useAppDispatch } from 'redux/hooks';
 
@@ -25,15 +25,19 @@ const Gnb = ({ backgroundColor }: IProp) => {
 
   return (
     <nav className={cx('nav', backgroundColor)}>
-      <h1 className={styles.title}>MJU Comminition</h1>
-      <ul className={styles.menu}>
-        <li className={styles.link}>
-          <a href="#">마이 페이지</a>
+      <h1>
+        <Link to="/" className={cx('title')}>
+          MJU Comminition
+        </Link>
+      </h1>
+      <ul className={cx('menu')}>
+        <li className={cx('link')}>
+          <NavLink to="/mypage">마이 페이지</NavLink>
         </li>
-        <li className={styles.link}>
+        <li className={cx('link')}>
           <a href="#">설정</a>
         </li>
-        <li className={styles.link}>
+        <li className={cx('link')}>
           <a href="#">알림</a>
         </li>
         <button type="button" className={cx('link', 'loginBtn')} onClick={handleLogout}>

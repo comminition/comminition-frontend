@@ -10,7 +10,7 @@ const Contribution = () => {
       <div className={styles.contribution}>
         <GitHubCalendar username={username} />
         <button type="button">
-          <p>Github 페이지로 </p>
+          <span>Github 페이지로 </span>
           <MyPageRightArrow />
         </button>
       </div>

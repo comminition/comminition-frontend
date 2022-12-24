@@ -2,8 +2,8 @@ import Layout from 'components/Layouts/Layout';
 import RequireAuth from 'components/Router/RequireAuth';
 import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { Route, Routes, ScrollRestoration } from 'react-router-dom';
+import { ToastContainer, Zoom } from 'react-toastify';
 import InfoPage from 'routes/InfoPage';
 import LoginPage from 'routes/LoginPage';
 import RedirectPage from 'routes/LoginPage/RedirectPage';
@@ -29,7 +29,7 @@ const App = () => {
         </Route>
       </Routes>
       <ScrollRestoration />
-      <Toaster />
+      <ToastContainer autoClose={1000} limit={1} transition={Zoom} />
     </Suspense>
   );
 };

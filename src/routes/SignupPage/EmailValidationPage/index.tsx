@@ -4,7 +4,6 @@ import TextField from 'components/UI/TextField';
 import { motion } from 'framer-motion';
 import useInput from 'hooks/useInput';
 import { FormEvent, useState } from 'react';
-import { toast } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import type { RootState } from 'redux/store';
@@ -39,7 +38,7 @@ const EmailValidationPage = () => {
     e.preventDefault();
     if (isEmailValid) {
       if (enteredEmail !== storedEmail) {
-        toast('입력한 이메일이 일치하지 않습니다.');
+        // toast('입력한 이메일이 일치하지 않습니다.');
         return;
       }
       if (!isValidCodeSent) {
@@ -48,7 +47,7 @@ const EmailValidationPage = () => {
           setIsValidCodeSent(true);
         } catch (error) {
           if (error instanceof Error) {
-            toast(error.message);
+            // toast(error.message);
           }
         }
       } else {
@@ -57,7 +56,7 @@ const EmailValidationPage = () => {
           navigate('/signup/emailValidation');
         } catch (error) {
           if (error instanceof Error) {
-            toast(error.message);
+            // toast(error.message);
           }
         }
       }
