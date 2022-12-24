@@ -1,12 +1,13 @@
 import { ProfileImage } from 'assets/svgs';
-import RoundButton from 'components/UI/Buttons/RoundButton';
 
-import Input from './components/Input';
+import SkillInput from './components/SkillInput';
+import Input from './components/TextInput';
 import useProfile from './hooks/useProfile';
 import styles from './profile.module.scss';
 
 const Profile = () => {
-  const { setUserInput, handleSubmit, userSkillInput, nickname, editMode, profile } = useProfile();
+  const { setUserInput, handleSubmit, setUserSkillInput, userInput, userSkillInput, nickname, editMode, profile } =
+    useProfile();
 
   return (
     <div className={styles.profile}>
@@ -24,7 +25,7 @@ const Profile = () => {
             {editMode ? (
               <Input
                 type="part"
-                placeholder="이메일을 입력해주세요"
+                placeholder="분야를 입력해주세요"
                 onChange={setUserInput}
                 initialValue={profile.field || ''}
               />
@@ -37,7 +38,7 @@ const Profile = () => {
             {editMode ? (
               <Input
                 type="major"
-                placeholder="이메일을 입력해주세요"
+                placeholder="전공을 입력해주세요"
                 onChange={setUserInput}
                 initialValue={profile.major || ''}
               />
@@ -50,7 +51,7 @@ const Profile = () => {
             {editMode ? (
               <Input
                 type="address"
-                placeholder="이메일을 입력해주세요"
+                placeholder="지역을 입력해주세요"
                 onChange={setUserInput}
                 initialValue={profile.local || ''}
               />
@@ -78,31 +79,13 @@ const Profile = () => {
           {editMode ? '수정 완료' : '프로필 수정하기'}
         </button>
         <div className={styles.type}>
-          {/* {state.skills.map((skill, i) => {
-            const key = `${skill}-${i}`;
-            return (
-              <RoundButton
-                size="auto"
-                backgroundColor="transparent"
-                height="36px"
-                color="#172366"
-                onClick={handleRemoveSkill}
-                key={key}
-              >
-                {skill}
-              </RoundButton>
-            );
-          })} */}
-          {/* {editMode && (
-            <input
-              type="text"
-              className={styles.addSkill}
-              placeholder="+ 직접 추가하기"
-              // onChange={handleSkillInput}
-              // onKeyDown={handleSkillEnter}
-              value={userSkillInput}
-            />
-          )} */}
+          <SkillInput
+            editMode={editMode}
+            setUserInput={setUserInput}
+            setUserSkillInput={setUserSkillInput}
+            userInput={userInput}
+            userSkillInput={userSkillInput}
+          />
         </div>
       </div>
     </div>

@@ -10,8 +10,8 @@ import {
   useReducer,
 } from 'react';
 
-import type { State as ProfileState } from '../hooks/useProfile';
-import styles from './input.module.scss';
+import type { State as ProfileState } from '../../hooks/useProfile';
+import styles from './textInput.module.scss';
 
 interface IProps {
   type: 'part' | 'major' | 'address' | 'email';

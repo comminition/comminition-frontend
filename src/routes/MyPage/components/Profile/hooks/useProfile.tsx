@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import comminition from 'apis/comminition';
 import useToast from 'hooks/useToast';
-import { ChangeEvent, KeyboardEvent, MouseEvent, useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { setProfile } from 'redux/profileSlice';
 import type { Profile } from 'types/comminition';
@@ -11,6 +11,7 @@ export interface State {
   major: string;
   address: string;
   email: string;
+  skills: string[];
 }
 
 const patchProfile = async (userId: string, profileData: Profile) => {
@@ -20,7 +21,7 @@ const patchProfile = async (userId: string, profileData: Profile) => {
 const useProfile = () => {
   // TODO: 코드 분리필요.
   const toast = useToast();
-  const [userInput, setUserInput] = useState<State>({ part: '', major: '', address: '', email: '' });
+  const [userInput, setUserInput] = useState<State>({ part: '', major: '', address: '', email: '', skills: [] });
   const profile = useAppSelector((state) => state.profile);
   const userId = useAppSelector((state) => state.login.userId);
   const reduxDispatch = useAppDispatch();
@@ -41,8 +42,14 @@ const useProfile = () => {
 
   // init state
   useEffect(() => {
-    setUserInput({ part: profile.field!, major: profile.major!, address: profile.local!, email: profile.email! });
-  }, [profile.email, profile.field, profile.local, profile.major]);
+    setUserInput({
+      part: profile.field!,
+      major: profile.major!,
+      address: profile.local!,
+      email: profile.email!,
+      skills: profile.skills,
+    });
+  }, [profile.email, profile.field, profile.local, profile.major, profile.skills]);
 
   const handleSubmit = useCallback(() => {
     if (editMode) {
@@ -51,7 +58,7 @@ const useProfile = () => {
         field: userInput.part,
         major: userInput.major,
         local: userInput.address,
-        skills: [],
+        skills: userInput.skills,
         email: userInput.email,
         introduce: profile.introduce,
         github: profile.github,
@@ -70,6 +77,7 @@ const useProfile = () => {
     userInput.email,
     userInput.major,
     userInput.part,
+    userInput.skills,
   ]);
 
   return {
