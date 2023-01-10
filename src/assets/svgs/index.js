@@ -26,3 +26,7 @@ export { ReactComponent as LikeCheckedIcon } from './like_clicked.svg';
 export { ReactComponent as ProfileImage } from './mypageProfileImage.svg';
 export { ReactComponent as PostButton } from './postbutton.svg';
 export { ReactComponent as ProfileIcon } from './profileIcon.svg';
+
+export { ReactComponent as FileUpload } from './file-upload.svg';
+export { ReactComponent as MenuButton } from './menu-button.svg';
+export { ReactComponent as DeleteButton } from './delete-button.svg';

@@ -4,6 +4,7 @@ import Pagenation from 'routes/RecruitPage/Pagenation';
 import InfoItem from '../../components/UI/InfoItem';
 import Filter from './Filter';
 import styles from './infoPage.module.scss';
+import { Link } from 'react-router-dom';
 
 const InfoPage = () => {
   const content = {
@@ -20,15 +21,18 @@ const InfoPage = () => {
     width: 'wide' as const,
     lineOfContent: 'oneLine' as const,
   };
+
   return (
     <div className={styles.infoPage}>
       <div className={styles.topDiv}>
         <span className={styles.filter}>
           <Filter />
         </span>
-        <button type="button" className={styles.postButton}>
-          <PostButton />
-        </button>
+        <Link to="/info/post">
+          <button type="button" className={styles.postButton}>
+            <PostButton />
+          </button>
+        </Link>
       </div>
       <div className={styles.midDiv}>
         <div className={styles.postBody}>

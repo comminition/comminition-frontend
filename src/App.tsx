@@ -10,7 +10,7 @@ import RedirectPage from 'routes/LoginPage/RedirectPage';
 import MainPage from 'routes/MainPage';
 import MyPage from 'routes/MyPage';
 import QuestionPage from 'routes/QuestionPage';
-import RecruitPage from 'routes/RecruitPage';
+import MyPage from 'routes/MyPage';
 
 const App = () => {
   return (
@@ -21,7 +21,9 @@ const App = () => {
             <Route path="" element={<MainPage />} />
             <Route path="recruit" element={<RecruitPage />} />
             <Route path="info" element={<InfoPage />} />
-            <Route path="question" element={<QuestionPage />} />
+            <Route path="info/post" element={<PostPage />} />
+        <Route path="info/read" element={<ReadPage />} />
+        <Route path="question" element={<QuestionPage />} />
             <Route path="mypage" element={<MyPage />} />
           </Route>
           <Route path="login" element={<LoginPage />} />
